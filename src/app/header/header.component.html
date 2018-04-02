@@ -22,10 +22,25 @@
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
-      <button class="btn btn-outline-success mx-2 my-sm-0" type="submit">Login</button>
+      <button class="btn btn-outline-success mx-2 my-sm-0" type="submit" data-target="#signInModel" data-toggle="modal">Login</button>
       <button class="btn btn-outline-success mx-2 my-sm-0" type="submit">Signup</button>
       <button type="button" class="btn btn-outline-info mx-0">Cart</button>
       <!-- CART BUTTON NANTI DIGANTI AMA LOGO CART-->
     </form>
   </div>
 </nav>
+
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title">Sign in</h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p>One fine body&hellip;</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="c('Close click')">Close</button>
+  </div>
+</ng-template>

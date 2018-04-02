@@ -9,6 +9,7 @@ import { AdminLoginComponent } from './admin/admin-login/admin-login.component';
 import { MainComponent } from './main/main.component';
 import { AdminPageComponent } from './admin/admin-page/admin-page.component';
 import { ProductDetailComponent } from './main/product-detail/product-detail.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { ProductDetailComponent } from './main/product-detail/product-detail.com
     ProductDetailComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
