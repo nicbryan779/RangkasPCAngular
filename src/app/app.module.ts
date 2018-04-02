@@ -4,18 +4,18 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import { HomepageComponent } from './homepage/homepage.component';
 import { FooterComponent } from './footer/footer.component';
 import { AdminLoginComponent } from './admin/admin-login/admin-login.component';
+import { MainComponent } from './main/main.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    HomepageComponent,
     FooterComponent,
-    AdminLoginComponent
+    AdminLoginComponent,
+    MainComponent
   ],
   imports: [
     BrowserModule
