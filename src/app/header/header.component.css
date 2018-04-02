@@ -1,6 +1,7 @@
 .navbar-custom
 {
   background-color: rgb(215, 0, 0);
+  color: white;
 }
 
 #loginbtn
@@ -8,10 +9,7 @@
   margin-left: 1em;
 }
 
-.searchField{
+.searchField
+{
   width:350%;
-}
-
-.sp-2{
-  padding:5%;
 }
