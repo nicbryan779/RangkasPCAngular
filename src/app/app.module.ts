@@ -1,18 +1,16 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { AdminLoginComponent } from './admin/admin-login/admin-login.component';
-import { MainComponent } from './main/main.component';
 import { AdminPageComponent } from './admin/admin-page/admin-page.component';
 import { ProductDetailComponent } from './main/product-detail/product-detail.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LoginComponent } from './login/login.component';
 import { AppRoutingModule } from './/app-routing.module';
-
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
@@ -21,10 +19,11 @@ import { AppRoutingModule } from './/app-routing.module';
     HeaderComponent,
     FooterComponent,
     AdminLoginComponent,
-    MainComponent,
+    HomeComponent,
     AdminPageComponent,
     ProductDetailComponent,
-    LoginComponent
+    LoginComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
