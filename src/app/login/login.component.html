@@ -2,12 +2,14 @@
     <div class="input-group-prepend">
       <div class="input-group-text" id="btnGroupAddon">Email</div>
     </div>
-  <input type="text" class="form-control" placeholder="Input group example" aria-label="Input group example" aria-describedby="btnGroupAddon">
+  <input type="text" class="form-control" placeholder="Input group example" aria-label="Input group example" aria-describedby="btnGroupAddon" name="email" [(ngModel)]="loginData.email">
 </div>
 <br />
 <div class="input-group">
     <div class="input-group-prepend">
       <div class="input-group-text" id="btnGroupAddon">Password</div>
     </div>
-  <input type="text" class="form-control" placeholder="Input group example" aria-label="Input group example" aria-describedby="btnGroupAddon">
+  <input type="text" class="form-control" placeholder="Input group example" aria-label="Input group example" aria-describedby="btnGroupAddon" name="password" [(ngModel)]="loginData.password">
 </div>
+<br/>
+<button type="button" class="btn btn-outline-info mx-0" (click)="submitLogin()">Login</button>
