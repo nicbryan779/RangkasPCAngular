@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {DataService} from '../Services/data.service';
+import { DataService } from '../Services/data.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -10,10 +11,13 @@ export class SignupComponent implements OnInit {
 
   public signupData: any = {};
 
-  constructor(private dataService: DataService) { }
+  constructor(private dataService: DataService, private router: Router) { }
 
-  submitLogin() {
-    this.dataService.login(this.signupData).subscribe();
+  submitSignup() {
+    this.dataService.signup(this.signupData).subscribe(resp => {
+      console.log(this.signupData);
+      this.router.navigateByUrl('/login');
+    });
   }
 
   ngOnInit() {

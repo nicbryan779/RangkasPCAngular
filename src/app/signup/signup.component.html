@@ -3,14 +3,64 @@
   <div class="input-group-prepend">
     <div class="input-group-text" id="btnGroupAddon">Email</div>
   </div>
-  <input type="text" class="form-control" placeholder="Input group example" aria-label="Input group example" aria-describedby="btnGroupAddon" name="email" [(ngModel)]="signupData.email">
+  <input type="text" class="form-control" placeholder="Input group example" aria-label="Input group example" aria-describedby="btnGroupAddon" name="email" [(ngModel)]="signupData.email" required>
 </div>
 <br />
+
 <div class="input-group">
   <div class="input-group-prepend">
     <div class="input-group-text" id="btnGroupAddon">Password</div>
   </div>
-  <input type="text" class="form-control" placeholder="Input group example" aria-label="Input group example" aria-describedby="btnGroupAddon" name="password" [(ngModel)]="signupData.password">
+  <input type="text" class="form-control" placeholder="Input group example" aria-label="Input group example" aria-describedby="btnGroupAddon" name="email" [(ngModel)]="signupData.password" required>
 </div>
-<br/>
-<button type="button" class="btn btn-outline-info mx-0" (click)="submitLogin()">Login</button>
+<br />
+
+<div class="input-group">
+  <div class="input-group-prepend">
+    <div class="input-group-text" id="btnGroupAddon">Date of Birth</div>
+  </div>
+  <input type="date" class="form-control" placeholder="Input group example" aria-label="Input group example" aria-describedby="btnGroupAddon" name="email" [(ngModel)]="signupData.birthdate" required>
+</div>
+<br />
+
+<div class="input-group">
+  <div class="input-group-prepend">
+    <div class="input-group-text" id="btnGroupAddon">Phone Number</div>
+  </div>
+  <input type="text" class="form-control" placeholder="Input group example" aria-label="Input group example" aria-describedby="btnGroupAddon" name="email" [(ngModel)]="signupData.phone" required>
+</div>
+<br />
+
+<div class="input-group">
+  <div class="input-group-prepend">
+    <div class="input-group-text" id="btnGroupAddon">Address</div>
+  </div>
+  <input type="text" class="form-control" placeholder="Input group example" aria-label="Input group example" aria-describedby="btnGroupAddon" name="email" [(ngModel)]="signupData.address" required>
+</div>
+<br />
+
+<div class="input-group">
+<div class="input-group-prepend">
+  <div class="input-group-text" id="btnGroupAddon">City</div>
+</div>
+<input type="text" class="form-control" placeholder="Input group example" aria-label="Input group example" aria-describedby="btnGroupAddon" name="email" [(ngModel)]="signupData.city" required>
+</div>
+<br />
+
+<div class="input-group">
+  <div class="input-group-prepend">
+    <div class="input-group-text" id="btnGroupAddon">State</div>
+  </div>
+  <input type="text" class="form-control" placeholder="Input group example" aria-label="Input group example" aria-describedby="btnGroupAddon" name="email" [(ngModel)]="signupData.state" required>
+</div>
+<br />
+
+<div class="input-group">
+  <div class="input-group-prepend">
+    <div class="input-group-text" id="btnGroupAddon">Zip</div>
+  </div>
+  <input type="text" class="form-control" placeholder="Input group example" aria-label="Input group example" aria-describedby="btnGroupAddon" name="email" [(ngModel)]="signupData.zip" required>
+</div>
+<br />
+
+<button type="button" class="btn btn-outline-info mx-0" (click)="submitSignup()">Sign Up</button>
