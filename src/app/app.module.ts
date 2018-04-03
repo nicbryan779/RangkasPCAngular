@@ -9,7 +9,10 @@ import { AdminLoginComponent } from './admin/admin-login/admin-login.component';
 import { MainComponent } from './main/main.component';
 import { AdminPageComponent } from './admin/admin-page/admin-page.component';
 import { ProductDetailComponent } from './main/product-detail/product-detail.component';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { LoginComponent } from './login/login.component';
+import { AppRoutingModule } from './/app-routing.module';
+
 
 
 @NgModule({
@@ -20,11 +23,13 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     AdminLoginComponent,
     MainComponent,
     AdminPageComponent,
-    ProductDetailComponent
+    ProductDetailComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
-    NgbModule
+    NgbModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
