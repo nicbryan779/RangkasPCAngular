@@ -15,6 +15,8 @@ import { HomeComponent } from './home/home.component';
 
 import { DataService } from './Services/data.service';
 import { SignupComponent } from './signup/signup.component';
+import { NavbarComponent } from './header/navbar/navbar.component';
+import { LoginFormComponent } from './header/login-form/login-form.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { SignupComponent } from './signup/signup.component';
     AdminPageComponent,
     LoginComponent,
     HomeComponent,
-    SignupComponent
+    SignupComponent,
+    NavbarComponent,
+    LoginFormComponent
   ],
   imports: [
     BrowserModule,
