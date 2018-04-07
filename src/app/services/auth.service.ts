@@ -38,7 +38,7 @@ export class AuthService {
     return this.http.get(this.baseUrl + '/logout', httpOptions);
   }
 
-  isAuthenticated() {
+  isLogin() {
     return localStorage.getItem('token') != null;
   }
 }
