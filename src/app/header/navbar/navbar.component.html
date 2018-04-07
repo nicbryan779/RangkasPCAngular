@@ -24,14 +24,21 @@
       </ul>
       <ul class="navbar-nav nav-flex-icons">
         <li class="nav-item">
-          <a routerLink="/login" class="nav-link">Sign in</a>
+          <a *ngIf="!authService.isAuthenticated()" class="nav-link" routerLink="/login">Sign in</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/signup">Register</a>
+          <a *ngIf="!authService.isAuthenticated()" class="nav-link" routerLink="/signup">Register</a>
+        </li>
+        <li class="nav-item">
+          <a *ngIf="authService.isAuthenticated()" class="nav-link" (click)="submitLogout()" routerLink="/login">Log Out</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Cart (<span>{{ 0 }}</span>)</a>
         </li>
+      </ul>
+
+      <ul *ngIf="isLogin" class="navbar-nav nav-flex-icons">
+
       </ul>
 
     </div>

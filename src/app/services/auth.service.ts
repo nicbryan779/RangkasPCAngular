@@ -16,19 +16,29 @@ export class AuthService {
   baseUrl = 'http://localhost:8000/api';
   token = localStorage.token;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+  }
 
   login(data): Observable<any> {
     return this.http.post<any>(this.baseUrl + '/login', data, httpOptions)
       .map(res => {
-      console.log(res);
-      localStorage.setItem('token', res['data']['token']);
-      // Get Token
-      // localstorage.getItem('token');
-    });
+        console.log(res);
+        localStorage.setItem('token', res['data']['token']);
+        // Get Token
+        // localstorage.getItem('token');
+      });
   }
 
   signup(data) {
     return this.http.post<User>(this.baseUrl + '/register', data, httpOptions);
+  }
+
+  logout() {
+    localStorage.removeItem('token');
+    return this.http.get(this.baseUrl + '/logout', httpOptions);
+  }
+
+  isAuthenticated() {
+    return localStorage.getItem('token') != null;
   }
 }
