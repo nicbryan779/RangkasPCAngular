@@ -13,7 +13,7 @@ import { AdminPageComponent } from './admin/admin-page/admin-page.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 
-import { DataService } from './Services/data.service';
+import { AuthService } from './services/auth.service';
 import { SignupComponent } from './signup/signup.component';
 import { NavbarComponent } from './header/navbar/navbar.component';
 import { LoginFormComponent } from './header/login-form/login-form.component';
@@ -39,7 +39,7 @@ import { LoginFormComponent } from './header/login-form/login-form.component';
     HttpClientModule,
     FormsModule
   ],
-  providers: [DataService],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

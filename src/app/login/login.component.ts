@@ -1,6 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { DataService } from '../Services/data.service';
 import { Router } from '@angular/router';
+
+import { AuthService } from '../services/auth.service';
+
+import { User } from '../models/User';
 
 @Component({
   selector: 'app-login',
@@ -12,20 +15,23 @@ export class LoginComponent implements OnInit {
 
   public loginData: any = {};
 
-  constructor(private dataService: DataService, private router: Router) { }
+  constructor(private authService: AuthService, private router: Router) { }
 
 
+  // Function is called when button is clicked
   submitLogin() {
-    this.dataService.login(this.loginData)
+    this.authService.login(this.loginData)
       .subscribe(
-        resp => {
+        // States that login is correct
+        () => {
+          alert('Login Completed');
           this.router.navigateByUrl('/home');
-          console.log(resp);
         },
-        error => {
-          console.log(error);
+        // States that login information is wrong
+        err => {
+          alert('Email or Password is wrong');
         }
-    );
+      );
   }
 
   ngOnInit() {}
