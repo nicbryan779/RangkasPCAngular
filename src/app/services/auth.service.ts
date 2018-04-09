@@ -7,14 +7,16 @@ import { User } from '../models/User';
 
 
 const httpOptions = {
-  headers: new HttpHeaders({'Content-type': 'application/json'})
+  headers: new HttpHeaders({
+    'Content-type': 'application/json',
+    'Authorization': `Bearer ${localStorage.token}`})
 };
 
 @Injectable()
 export class AuthService {
 
-  baseUrl = 'http://localhost:8000/api';
   token = localStorage.token;
+  baseUrl = 'http://localhost:8000/api';
 
   constructor(private http: HttpClient) {
   }
@@ -22,10 +24,7 @@ export class AuthService {
   login(data): Observable<any> {
     return this.http.post<any>(this.baseUrl + '/login', data, httpOptions)
       .map(res => {
-        console.log(res);
         localStorage.setItem('token', res['data']['token']);
-        // Get Token
-        // localstorage.getItem('token');
       });
   }
 
@@ -41,4 +40,9 @@ export class AuthService {
   isLogin() {
     return localStorage.getItem('token') != null;
   }
+
+  getUser() {
+    return this.http.get(this.baseUrl + '/getuser', httpOptions);
+  }
+
 }

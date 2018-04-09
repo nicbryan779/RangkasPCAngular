@@ -17,6 +17,7 @@ import { AuthService } from './services/auth.service';
 import { SignupComponent } from './signup/signup.component';
 import { NavbarComponent } from './header/navbar/navbar.component';
 import { LoginFormComponent } from './header/login-form/login-form.component';
+import { CartComponent } from './cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { LoginFormComponent } from './header/login-form/login-form.component';
     HomeComponent,
     SignupComponent,
     NavbarComponent,
-    LoginFormComponent
+    LoginFormComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,

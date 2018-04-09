@@ -33,10 +33,13 @@
           <a *ngIf="authService.isLogin()" class="nav-link" (click)="submitLogout()">Log Out</a>
         </li>
         <li class="nav-item">
+          <a *ngIf="this.user.name != null" class="nav-link">Hello {{ this.user.name }}</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link" href="#">Cart (<span>{{ 0 }}</span>)</a>
         </li>
       </ul>
-
+      
     </div>
   </div>
 </nav>
