@@ -1,66 +1,82 @@
-<p>This is Signup</p>
-<div class="input-group">
-  <div class="input-group-prepend">
-    <div class="input-group-text" id="btnGroupAddon">Email</div>
+<div class="row">
+  <div class="col-md-6 mx-auto">
+    <div class="card">
+      <div class="card-body">
+        <h1 class="text-center pb-4 pt-3">
+          <span class="text-primary">
+            Sign Up
+          </span>
+        </h1>
+        <form #userForm="ngForm" (submit)="submitSignup()">
+          <div class="form-group">
+            <label>Name</label>
+            <input name="name" placeholder="Your Name" [(ngModel)]="signupData.name" #name="ngModel" [ngClass]="{'is-invalid':name.errors && name.touched}" class="form-control" required>
+            <div [hidden]="!name.errors?.required" class="invalid-feedback">
+              Name is required!
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input name="email" placeholder="Your Email" [(ngModel)]="signupData.email" #email="ngModel" [ngClass]="{'is-invalid':email.errors && email.touched}" class="form-control" required pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?">
+            <div [hidden]="!email.errors?.required" class="invalid-feedback">
+              Email is required!
+            </div>
+            <div [hidden]="!email.errors?.pattern" class="invalid-feedback">
+              Email is not valid!
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Password</label>
+            <input type="password" name="password" placeholder="Your Password" [(ngModel)]="signupData.password" #password="ngModel" [ngClass]="{'is-invalid':password.errors && password.touched}" class="form-control" required>
+            <div [hidden]="!password.errors?.required" class="invalid-feedback">
+              Password is required!
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Birth Date</label>
+            <input type="date" name="date" placeholder="Your Birth Date" [(ngModel)]="signupData.birthdate" #birthdate="ngModel" [ngClass]="{'is-invalid':birthdate.errors && birthdate.touched}" class="form-control" required>
+            <div [hidden]="!birthdate.errors?.required" class="invalid-feedback">
+              Birthdate is required!
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Phone</label>
+            <input type="number" name="phone" placeholder="Your Phone Number" [(ngModel)]="signupData.phone" #phone="ngModel" [ngClass]="{'is-invalid':phone.errors && phone.touched}" class="form-control" required>
+            <div [hidden]="!phone.errors?.required" class="invalid-feedback">
+              Phone is required!
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Address</label>
+            <input name="address" placeholder="Your Address" [(ngModel)]="signupData.address" #address="ngModel" [ngClass]="{'is-invalid':address.errors && address.touched}" class="form-control" required>
+            <div [hidden]="!address.errors?.required" class="invalid-feedback">
+              Address is required!
+            </div>
+          </div>
+          <div class="form-group">
+            <label>City</label>
+            <input name="city" placeholder="Your City" [(ngModel)]="signupData.city" #city="ngModel" [ngClass]="{'is-invalid':city.errors && city.touched}" class="form-control" required>
+            <div [hidden]="!city.errors?.required" class="invalid-feedback">
+              City is required!
+            </div>
+          </div>
+          <div class="form-group">
+            <label>State</label>
+            <input name="state" placeholder="Your State" [(ngModel)]="signupData.state" #state="ngModel" [ngClass]="{'is-invalid':state.errors && state.touched}" class="form-control" required>
+            <div [hidden]="!state.errors?.required" class="invalid-feedback">
+              State is required!
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Zip</label>
+            <input name="zip" placeholder="Zip Code" [(ngModel)]="signupData.zip" #zip="ngModel" [ngClass]="{'is-invalid':zip.errors && zip.touched}" class="form-control" required>
+            <div [hidden]="!zip.errors?.required" class="invalid-feedback">
+              Zip Code is required!
+            </div>
+          </div>
+          <input [disabled]="!userForm.form.valid" type="submit" value="Signup" class=""btn btn-primary btn-block>
+        </form>
+      </div>
+    </div>
   </div>
-  <input type="text" class="form-control" placeholder="Input group example" aria-label="Input group example" aria-describedby="btnGroupAddon" name="email" [(ngModel)]="signupData.email" required>
 </div>
-<br />
-
-<div class="input-group">
-  <div class="input-group-prepend">
-    <div class="input-group-text" id="btnGroupAddon">Password</div>
-  </div>
-  <input type="text" class="form-control" placeholder="Input group example" aria-label="Input group example" aria-describedby="btnGroupAddon" name="email" [(ngModel)]="signupData.password" required>
-</div>
-<br />
-
-<div class="input-group">
-  <div class="input-group-prepend">
-    <div class="input-group-text" id="btnGroupAddon">Date of Birth</div>
-  </div>
-  <input type="date" class="form-control" placeholder="Input group example" aria-label="Input group example" aria-describedby="btnGroupAddon" name="email" [(ngModel)]="signupData.birthdate" required>
-</div>
-<br />
-
-<div class="input-group">
-  <div class="input-group-prepend">
-    <div class="input-group-text" id="btnGroupAddon">Phone Number</div>
-  </div>
-  <input type="text" class="form-control" placeholder="Input group example" aria-label="Input group example" aria-describedby="btnGroupAddon" name="email" [(ngModel)]="signupData.phone" required>
-</div>
-<br />
-
-<div class="input-group">
-  <div class="input-group-prepend">
-    <div class="input-group-text" id="btnGroupAddon">Address</div>
-  </div>
-  <input type="text" class="form-control" placeholder="Input group example" aria-label="Input group example" aria-describedby="btnGroupAddon" name="email" [(ngModel)]="signupData.address" required>
-</div>
-<br />
-
-<div class="input-group">
-<div class="input-group-prepend">
-  <div class="input-group-text" id="btnGroupAddon">City</div>
-</div>
-<input type="text" class="form-control" placeholder="Input group example" aria-label="Input group example" aria-describedby="btnGroupAddon" name="email" [(ngModel)]="signupData.city" required>
-</div>
-<br />
-
-<div class="input-group">
-  <div class="input-group-prepend">
-    <div class="input-group-text" id="btnGroupAddon">State</div>
-  </div>
-  <input type="text" class="form-control" placeholder="Input group example" aria-label="Input group example" aria-describedby="btnGroupAddon" name="email" [(ngModel)]="signupData.state" required>
-</div>
-<br />
-
-<div class="input-group">
-  <div class="input-group-prepend">
-    <div class="input-group-text" id="btnGroupAddon">Zip</div>
-  </div>
-  <input type="text" class="form-control" placeholder="Input group example" aria-label="Input group example" aria-describedby="btnGroupAddon" name="email" [(ngModel)]="signupData.zip" required>
-</div>
-<br />
-
-<button type="button" class="btn btn-outline-info mx-0" (click)="submitSignup()">Sign Up</button>

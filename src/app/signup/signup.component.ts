@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from '../Services/data.service';
+import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
+
+import { User } from '../models/User';
 
 @Component({
   selector: 'app-signup',
@@ -9,15 +11,31 @@ import { Router } from '@angular/router';
 })
 export class SignupComponent implements OnInit {
 
-  public signupData: any = {};
+  public signupData: User = {
+    name: '',
+    email: '',
+    password: '',
+    birthdate: '',
+    phone: 0,
+    address: '',
+    city: '',
+    state: '',
+    zip: ''
+  };
 
-  constructor(private dataService: DataService, private router: Router) { }
+  constructor(private authService: AuthService, private router: Router) { }
 
   submitSignup() {
-    this.dataService.signup(this.signupData).subscribe(resp => {
-      console.log(this.signupData);
-      this.router.navigateByUrl('/login');
-    });
+    this.authService.signup(this.signupData)
+      .subscribe(
+        () => {
+          alert('Signup Successful, Verify Your Email Before You Login');
+          this.router.navigateByUrl('/login');
+        },
+        err => {
+          alert('Signup gone wrong (Email is taken)');
+        }
+    );
   }
 
   ngOnInit() {
