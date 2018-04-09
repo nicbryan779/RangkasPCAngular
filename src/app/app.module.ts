@@ -17,7 +17,11 @@ import { AuthService } from './services/auth.service';
 import { SignupComponent } from './signup/signup.component';
 import { NavbarComponent } from './header/navbar/navbar.component';
 import { LoginFormComponent } from './header/login-form/login-form.component';
+<<<<<<< HEAD
 import { ProductComponent } from './product/product.component';
+=======
+import { CartComponent } from './cart/cart.component';
+>>>>>>> 609092705d8a77dc61ac6b44beadefe6c96177cd
 
 @NgModule({
   declarations: [
@@ -32,7 +36,11 @@ import { ProductComponent } from './product/product.component';
     SignupComponent,
     NavbarComponent,
     LoginFormComponent,
+<<<<<<< HEAD
     ProductComponent
+=======
+    CartComponent
+>>>>>>> 609092705d8a77dc61ac6b44beadefe6c96177cd
   ],
   imports: [
     BrowserModule,
