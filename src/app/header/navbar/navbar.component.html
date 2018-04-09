@@ -32,8 +32,12 @@
         <li class="nav-item">
           <a *ngIf="authService.isLogin()" class="nav-link" (click)="submitLogout()">Log Out</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Cart (<span>{{ 0 }}</span>)</a>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-shopping-cart"></i>(<span>{{ 0 }}</span>)</a>
+          <div class="dropdown-menu">
+            <!--FILLED WITH USER'S CHOICE, DYNAMICALLY ADDED-->
+          </div>
         </li>
       </ul>
 
