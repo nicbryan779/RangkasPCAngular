@@ -10,31 +10,52 @@
         <form #userForm="ngForm" (submit)="submitEdit()">
           <div class="form-group">
             <label>Name</label>
-            <input value="{{ this.user.name }}" [(ngModel)]="user.name" name="Name">
+            <input name="Name" value="{{ this.user.name }}" [(ngModel)]="user.name" #name="ngModel" [ngClass]="{'is-invalid':name.errors && name.touched}" class="form-control" required>
+            <div [hidden]="!name.errors?.required" class="invalid-feedback">
+              Name is required!
+            </div>
           </div>
           <div class="form-group">
             <label>birthdate</label>
-            <input type="date" value="{{ this.user.birthdate }}" [(ngModel)]="user.birthdate" name="BirthDate">
+            <input name="BirthDate" type="date" value="{{ this.user.birthdate }}" [(ngModel)]="user.birthdate" #birthdate="ngModel" [ngClass]="{'is-invalid':birthdate.errors && birthdate.touched}" class="form-control" required>
+            <div [hidden]="!birthdate.errors?.required" class="invalid-feedback">
+              Birthdate is required!
+            </div>
           </div>
           <div class="form-group">
             <label>phone</label>
-            <input value="{{ this.user.phone }}" [(ngModel)]="user.phone" name="Phone">
+            <input name="Phone" value="{{ this.user.phone }}" [(ngModel)]="user.phone" #phone="ngModel" [ngClass]="{'is-invalid':phone.errors && phone.touched}" class="form-control" required>
+            <div [hidden]="!phone.errors?.required" class="invalid-feedback">
+              Phone is required!
+            </div>
           </div>
           <div class="form-group">
             <label>address</label>
-            <input value="{{ this.user.address }}" [(ngModel)]="user.address" name="Address">
+            <input name="Address" value="{{ this.user.address }}" [(ngModel)]="user.address" #address="ngModel" [ngClass]="{'is-invalid':address.errors && address.touched}" class="form-control" required>
+            <div [hidden]="!address.errors?.required" class="invalid-feedback">
+              Address is required!
+            </div>
           </div>
           <div class="form-group">
             <label>city</label>
-            <input value="{{ this.user.city }}" [(ngModel)]="user.city" name="City">
+            <input name="City" value="{{ this.user.city }}" [(ngModel)]="user.city" #city="ngModel" [ngClass]="{'is-invalid':city.errors && city.touched}" class="form-control" required>
+            <div [hidden]="!city.errors?.required" class="invalid-feedback">
+              City is required!
+            </div>
           </div>
           <div class="form-group">
             <label>state</label>
-            <input value="{{ this.user.state }}" [(ngModel)]="user.state" name="State">
+            <input name="State" value="{{ this.user.state }}" [(ngModel)]="user.state" #state="ngModel" [ngClass]="{'is-invalid':state.errors && state.touched}" class="form-control" required>
+            <div [hidden]="!state.errors?.required" class="invalid-feedback">
+              State is required!
+            </div>
           </div>
           <div class="form-group">
             <label>zip</label>
-            <input value="{{ this.user.zip }}" [(ngModel)]="user.zip" name="Zip">
+            <input name="Zip" value="{{ this.user.zip }}" [(ngModel)]="user.zip" #zip="ngModel" [ngClass]="{'is-invalid':zip.errors && zip.touched}" class="form-control" required>
+            <div [hidden]="!zip.errors?.required" class="invalid-feedback">
+              Zip is required!
+            </div>
           </div>
           <input [disabled]="!userForm.form.valid" type="submit" value="Edit" class="btn btn-primary btn-block">
         </form>

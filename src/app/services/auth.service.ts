@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
-import { User } from '../models/User';
+import { User } from '../model/User';
 
 
 const httpOptions = {
