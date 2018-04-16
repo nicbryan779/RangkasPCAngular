@@ -6,6 +6,7 @@ import { HomeComponent } from './home/home.component';
 import { SignupComponent } from './signup/signup.component';
 import { CartComponent } from './cart/cart.component';
 import { ProfileComponent } from './profile/profile.component';
+import { SubmitemailComponent } from './resetpassword/submitemail/submitemail.component';
 
 const routes: Routes =
 [
@@ -15,6 +16,7 @@ const routes: Routes =
   { path: 'signup', component: SignupComponent},
   { path: 'cart', component: CartComponent},
   { path: 'edit', component: ProfileComponent},
+  { path: 'forgetpassword', component: SubmitemailComponent },
   { path: '**', component: HomeComponent } // Change to does not exit component
   // { path: 'detail/:id', component: HeroDetailComponent },
 ];

@@ -49,4 +49,9 @@ export class AuthService {
     return this.http.get(this.baseUrl + '/getuser', httpOptions);
   }
 
+  // For forget Password
+  forgetPassword(data) {
+    return this.http.post(this.baseUrl + '/recover', data, httpOptions);
+  }
+
 }

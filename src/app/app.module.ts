@@ -20,6 +20,8 @@ import { LoginFormComponent } from './header/login-form/login-form.component';
 import { ProductComponent } from './product/product.component';
 import { CartComponent } from './cart/cart.component';
 import { ProfileComponent } from './profile/profile.component';
+import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
+import { SubmitemailComponent } from './resetpassword/submitemail/submitemail.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,9 @@ import { ProfileComponent } from './profile/profile.component';
     LoginFormComponent,
     ProductComponent,
     CartComponent,
-    ProfileComponent
+    ProfileComponent,
+    ResetpasswordComponent,
+    SubmitemailComponent
   ],
   imports: [
     BrowserModule,
