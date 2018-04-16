@@ -54,4 +54,8 @@ export class AuthService {
     return this.http.post(this.baseUrl + '/recover', data, httpOptions);
   }
 
+  resetPassword(data, validator) {
+    return this.http.post(this.baseUrl + '/forgetpassword/' + validator, data, httpOptions);
+  }
+
 }
