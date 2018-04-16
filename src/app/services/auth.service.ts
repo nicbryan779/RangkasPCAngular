@@ -5,11 +5,10 @@ import 'rxjs/add/operator/map';
 
 import { User } from '../model/User';
 
-
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-type': 'application/json',
-    'Authorization': `Bearer ${localStorage.token}`})
+    'Authorization': `Bearer ${localStorage.getItem('token')}`})
 };
 
 @Injectable()
@@ -25,6 +24,7 @@ export class AuthService {
     return this.http.post<any>(this.baseUrl + '/login', data, httpOptions)
       .map(res => {
         localStorage.setItem('token', res['data']['token']);
+        console.log(httpOptions);
       });
   }
 
@@ -46,6 +46,7 @@ export class AuthService {
   }
 
   getUser() {
+    console.log(httpOptions);
     return this.http.get(this.baseUrl + '/getuser', httpOptions);
   }
 
@@ -58,4 +59,14 @@ export class AuthService {
     return this.http.post(this.baseUrl + '/forgetpassword/' + validator, data, httpOptions);
   }
 
+  // validateToken() {
+  //   if (localStorage.token) {
+  //     this.httpOptions = {
+  //       headers: new HttpHeaders({
+  //         'Content-Type': 'application/json',
+  //         'Authorization': `Bearer ${localStorage.token}`
+  //       })
+  //     };
+  //   }
+  // }
 }

@@ -26,6 +26,7 @@ export class LoginComponent implements OnInit {
         () => {
           alert('Login Completed');
           this.router.navigateByUrl('/home');
+          location.reload();
         },
         // States that login information is wrong
         err => {

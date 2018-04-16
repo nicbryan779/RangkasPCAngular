@@ -37,7 +37,9 @@ export class ProfileComponent implements OnInit {
   }
 
   getUser() {
-    if (this.authService.isLogin()) {
+    console.log(this.user.id);
+    console.log(localStorage.getItem('token'));
+    if (localStorage.getItem('token')) {
       this.authService.getUser().subscribe(data => {
         this.data = data;
         this.user.id = this.data['user']['id'];
@@ -50,6 +52,7 @@ export class ProfileComponent implements OnInit {
         this.user.city = this.data['user']['city'];
         this.user.state = this.data['user']['state'];
         this.user.zip = this.data['user']['zip'];
+        console.log(this.user.id);
       });
     }
   }

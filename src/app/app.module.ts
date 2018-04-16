@@ -22,6 +22,8 @@ import { CartComponent } from './cart/cart.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
 import { SubmitemailComponent } from './resetpassword/submitemail/submitemail.component';
+import { VerificationsuccessComponent } from './verification/verificationsuccess/verificationsuccess.component';
+import { VerificationfalseComponent } from './verification/verificationfalse/verificationfalse.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,9 @@ import { SubmitemailComponent } from './resetpassword/submitemail/submitemail.co
     CartComponent,
     ProfileComponent,
     ResetpasswordComponent,
-    SubmitemailComponent
+    SubmitemailComponent,
+    VerificationsuccessComponent,
+    VerificationfalseComponent
   ],
   imports: [
     BrowserModule,

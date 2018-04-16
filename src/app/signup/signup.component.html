@@ -69,7 +69,7 @@
           </div>
           <div class="form-group">
             <label>Zip</label>
-            <input name="zip" placeholder="Zip Code" [(ngModel)]="signupData.zip" #zip="ngModel" [ngClass]="{'is-invalid':zip.errors && zip.touched}" class="form-control" required>
+            <input type="number" name="zip" placeholder="Zip Code" [(ngModel)]="signupData.zip" #zip="ngModel" [ngClass]="{'is-invalid':zip.errors && zip.touched}" class="form-control" required>
             <div [hidden]="!zip.errors?.required" class="invalid-feedback">
               Zip Code is required!
             </div>

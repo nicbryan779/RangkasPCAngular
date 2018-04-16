@@ -8,6 +8,8 @@ import { CartComponent } from './cart/cart.component';
 import { ProfileComponent } from './profile/profile.component';
 import { SubmitemailComponent } from './resetpassword/submitemail/submitemail.component';
 import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
+import { VerificationsuccessComponent } from './verification/verificationsuccess/verificationsuccess.component';
+import { VerificationfalseComponent } from './verification/verificationfalse/verificationfalse.component';
 
 const routes: Routes =
 [
@@ -19,6 +21,8 @@ const routes: Routes =
   { path: 'edit', component: ProfileComponent},
   { path: 'forgetpassword', component: SubmitemailComponent },
   { path: 'resetpassword/:id', component: ResetpasswordComponent },
+  { path: 'verificationsuccessful', component: VerificationsuccessComponent},
+  { path: 'verificationfalse', component: VerificationfalseComponent },
   { path: '**', component: HomeComponent } // Change to does not exit component
   // { path: 'detail/:id', component: HeroDetailComponent },
 ];
