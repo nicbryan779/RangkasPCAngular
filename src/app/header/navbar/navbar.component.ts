@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 
 import { User } from '../../models/User';
-import {Observable} from 'rxjs/Observable';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-navbar',
@@ -15,6 +15,7 @@ export class NavbarComponent implements OnInit {
 
   data: any;
   user: User = {
+    id: null,
     name: null,
     email: null,
     password: null,
@@ -30,7 +31,7 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getName();
+    this.getUser();
   }
 
   userReset() {
@@ -52,14 +53,12 @@ export class NavbarComponent implements OnInit {
     this.router.navigateByUrl('/home');
   }
 
-  getName() {
+  getUser() {
     if (this.authService.isLogin()) {
       this.authService.getUser().subscribe(data => {
         this.data = data;
-        console.log(data);
-        console.log(this.data['user']['name']);
         this.user.name = this.data['user']['name'];
-        console.log(this.user.name);
+        this.user.id = this.data['user']['id'];
       });
     }
   }

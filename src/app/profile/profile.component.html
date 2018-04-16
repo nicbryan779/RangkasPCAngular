@@ -1,0 +1,44 @@
+<div class="row">
+  <div class="col-md-6 mx-auto">
+    <div class="card">
+      <div class="card-body">
+        <h1 class="text-center pb-4 pt-3">
+          <span class="text-primary">
+            Edit Profile
+          </span>
+        </h1>
+        <form #userForm="ngForm" (submit)="submitEdit()">
+          <div class="form-group">
+            <label>Name</label>
+            <input value="{{ this.user.name }}" [(ngModel)]="user.name" name="Name">
+          </div>
+          <div class="form-group">
+            <label>birthdate</label>
+            <input type="date" value="{{ this.user.birthdate }}" [(ngModel)]="user.birthdate" name="BirthDate">
+          </div>
+          <div class="form-group">
+            <label>phone</label>
+            <input value="{{ this.user.phone }}" [(ngModel)]="user.phone" name="Phone">
+          </div>
+          <div class="form-group">
+            <label>address</label>
+            <input value="{{ this.user.address }}" [(ngModel)]="user.address" name="Address">
+          </div>
+          <div class="form-group">
+            <label>city</label>
+            <input value="{{ this.user.city }}" [(ngModel)]="user.city" name="City">
+          </div>
+          <div class="form-group">
+            <label>state</label>
+            <input value="{{ this.user.state }}" [(ngModel)]="user.state" name="State">
+          </div>
+          <div class="form-group">
+            <label>zip</label>
+            <input value="{{ this.user.zip }}" [(ngModel)]="user.zip" name="Zip">
+          </div>
+          <input [disabled]="!userForm.form.valid" type="submit" value="Edit" class="btn btn-primary btn-block">
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

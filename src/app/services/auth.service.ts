@@ -32,6 +32,10 @@ export class AuthService {
     return this.http.post<User>(this.baseUrl + '/register', data, httpOptions);
   }
 
+  edit(data) {
+    return this.http.put<User>(this.baseUrl + '/editprofile', data, httpOptions);
+  }
+
   logout() {
     localStorage.removeItem('token');
     return this.http.get(this.baseUrl + '/logout', httpOptions);
