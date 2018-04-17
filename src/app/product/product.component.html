@@ -1,57 +1,29 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-md-12 mt-5 text-center">
-      <h2>Fallout 4</h2>
+    <div  class="col-md-12 mt-5 text-center">
+      <h2> {{ products.name }}</h2>
     </div>
   </div>
   <hr>
   <div class="row">
     <div class="col-md-5">
-      <div id="carousel-example-1z" class="carousel slide carousel-fade" data-ride="carousel">
-        <!--Slides-->
-        <div class="carousel-inner" role="listbox">
-          <!--First slide-->
-          <div class="carousel-item active">
-            <img height="320" class="d-block w-100" src="https://xpgamer.com.br/wp-content/uploads/mapa-do-fortnite-conheca-os-melhores-lugares-para-cair-capa-800x500.jpg" alt="First slide">
-          </div>
-          <!--/First slide-->
-          <!--Second slide-->
-          <div class="carousel-item">
-            <img height="320" class="d-block w-100" src="https://xpgamer.com.br/wp-content/uploads/mapa-do-fortnite-conheca-os-melhores-lugares-para-cair-capa-800x500.jpg" alt="Second slide">
-          </div>
-          <!--/Second slide-->
-          <!--Third slide-->
-          <div class="carousel-item">
-            <img height="320" class="d-block w-100" src="https://xpgamer.com.br/wp-content/uploads/mapa-do-fortnite-conheca-os-melhores-lugares-para-cair-capa-800x500.jpg" alt="Third slide">
-          </div>
-          <!--/Third slide-->
-        </div>
-        <!--/.Slides-->
-        <!--Controls-->
-        <a class="carousel-control-prev" href="#carousel-example-1z" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carousel-example-1z" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-        <!--/.Controls-->
-      </div>
-      <!--/.Carousel Wrapper-->
+      <img [src]="products.img" class="img-fluid" alt="Responsive image">
     </div>
     <div class="col-md-7">
-      <h1 class="text-center"><i class="fa fa-steam-square"></i></h1>
+      <h1 class="text-center">
+        <i class="fa fa-steam-square"></i>
+        <i class="fas fa-key"></i>
+      </h1>
+      <!--<h1 class="text-center"><i class="fa fa-steam-square"></i></h1>-->
       <!--<h1 class="text-center"><i class="fa fa-key"></i></h1>-->
       <hr>
-
-      <h3 style="color: #80e817;" class="text-center mt-2">Available Stock!</h3>
+      <h5 class="text-md-center">{{ products.type }}</h5>
+      <h5 class="text-md-center">{{ products.brand }}</h5>
       <br>
+      <h3 style="color: #80e817;" class="text-center mt-2">Stock Available!</h3>
       <br>
-      <br>
-      <br>
-      <h3 class="text-center">Rp 150.000</h3>
-      <button type="button" class="btn btn-light-blue btn-lg btn-block">Buy Now</button>
+      <h3 class="text-center">{{ products.price }}</h3>
+      <button type="button" [disabled]="isAvailable" class="btn btn-light-blue btn-lg btn-block">Buy Now</button>
 
     </div>
 
@@ -69,11 +41,9 @@
       </nav>
       <div class="tab-content" id="nav-tabContent">
         <div class="tab-pane fade show active" id="nav-desc" role="tabpanel" aria-labelledby="nav-home-tab">
-          <h2>Product description</h2>
-          <p>Fortnite is Epic Game’s new Action Building game. This Founder’s Pack includes “Save The World” a paid Early Access PvE campaign and the free Battle Royale PvP mode.</p>
-
-          <h2>“Save The World” Campaign</h2>
-          <p>The Storm came without warning and 98% of the world's population vanished … then came the monsters. You and up to four players lead the world's remaining Heroes in a battle to save survivors and hold back the monster hordes. Explore a large, destructible world where no two games are ever the same. Build huge forts, craft exotic weapons, find loot and level up your Heroes.</p>   </div>
+          <br>
+          {{ products.description }}
+        </div>
         <div class="tab-pane fade border-info" id="nav-spec" role="tabpanel" aria-labelledby="nav-spec-tab">
           <ul class="list-group list-group-flush">
             <li class="list-group-item">Graphics</li>
