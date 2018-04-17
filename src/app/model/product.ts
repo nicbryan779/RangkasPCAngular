@@ -8,7 +8,7 @@ export class Product {
   stock: number;
   sold: number;
   img: string;
-  video: string;
-  created: string;
-  updated: string;
+  video?: string;
+  created?: string;
+  updated?: string;
 }

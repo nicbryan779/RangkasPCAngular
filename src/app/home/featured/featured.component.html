@@ -1,0 +1,28 @@
+<div class="card-deck">
+
+  <!--Card-->
+  <div *ngFor="let feature of features" class="card mb-3">
+
+    <!--Card image-->
+    <div class="view overlay">
+      <img class="img-fluid" [src]="feature.img" alt="Card image cap">
+      <a href="/product/{{ feature.id }}">
+        <div class="mask rgba-white-slight"></div>
+      </a>
+    </div>
+    <!--Card image-->
+
+    <!--Card content-->
+    <div class="card-body text-center">
+
+      <h4 class="card-title">{{ feature.name }}</h4>
+      <p class="card-text">{{ feature.type }}</p>
+      <p class="card-text">{{ feature.brand }}</p>
+      <p class="card-text">{{ feature.price }}</p>
+
+      <a href="product/{{ feature.id }}" role="button" class="btn btn-light-blue btn-md">Detail</a>
+    </div>
+    <!--Card content-->
+
+  </div>
+</div>

@@ -35,63 +35,27 @@
     <span class="sr-only">Next</span>
   </a>
   <!--Carousel Control-->
-
 </div>
-
 <hr>
 
 <!--End of Carousel Wrapper-->
 <div class="container-fluid">
   <h2 class="text-center">Most Featured</h2>
   <div class="row">
-    <div class="col-md-6 col-md-offset-3">
-
-    </div>
+    <div class="col-md-6 col-md-offset-3"></div>
     <div class="col-md-12">
-      <!--Card group-->
-      <div class="card-deck">
-
-        <!--Card-->
-        <div *ngFor="let feature of features" class="card mb-3">
-
-          <!--Card image-->
-          <div class="view overlay">
-            <img class="img-fluid" [src]="feature.url" alt="Card image cap">
-            <a href="#!">
-              <div class="mask rgba-white-slight"></div>
-            </a>
-          </div>
-          <!--Card image-->
-
-          <!--Card content-->
-          <div class="card-body text-center">
-
-            <h4 class="card-title">{{ feature.name }}</h4>
-            <p class="card-text">{{ feature.platform }}</p>
-            <p class="card-text">{{ feature.genre }}</p>
-            <p class="card-text">{{ feature.price }}</p>
-
-            <button type="button" class="btn btn-light-blue btn-md">Detail</button>
-          </div>
-          <!--Card content-->
-
-        </div>
-      </div>
-
+      <!--App Featured-->
+      <app-featured></app-featured>
+      <!--/App-Featured-->
     </div>
   </div>
 </div>
 <hr>
+
 <div class="container-fluid">
   <h2 class="text-center">Top Pick</h2>
   <div class="col-md-12">
-    <div class="card bg-dark text-white">
-      <img class="card-img" src="https://compass-ssl.xbox.com/assets/42/d4/42d4a443-d696-486c-bda5-111e72a56a03.jpg?n=FC5_GLP-Page-Hero-1084_1920x600_03.jpg" alt="Card image">
-      <div class="card-body text-center">
-        <h2 class="card-title">FAR CRY 5</h2>
-        <p class="card-text">STEAM / PC / Open-World</p>
-      </div>
-    </div>
+  <app-top></app-top>
   </div>
 </div>
 <hr>
@@ -103,39 +67,9 @@
 
     </div>
     <div class="col-md-12">
-      <!--Card group-->
-      <div class="card-deck">
-
-        <!--Card-->
-        <div *ngFor="let feature of features" class="card mb-3">
-          <!--Card image-->
-          <div class="view overlay">
-            <img class="img-fluid" [src]="feature.url" alt="Card image cap">
-            <a href="#!">
-              <div class="mask rgba-white-slight"></div>
-            </a>
-          </div>
-          <!--Card image-->
-
-          <!--Card content-->
-          <div class="card-body text-center">
-
-            <!--Title-->
-            <h4 class="card-title">{{ feature.name }}</h4>
-
-            <!--Text-->
-            <p class="card-text">{{ feature.platform }}</p>
-            <p class="card-text">{{ feature.genre }}</p>
-            <p class="card-text">{{ feature.price }}</p>
-
-            <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-            <button type="button" class="btn btn-light-blue btn-md">Detail</button>
-          </div>
-          <!--Card content-->
-          <!--itu feature bakal diganti ke release, blm bikin dummy data nya-->
-        </div>
-      </div>
-
+      <!--App New Release-->
+      <app-new-release></app-new-release>
+      <!--/App New Release-->
     </div>
 
   </div>
@@ -143,7 +77,6 @@
 
 
 </div>
-<!--/New Release
 -->
 
 <!--/TOP PICK-->

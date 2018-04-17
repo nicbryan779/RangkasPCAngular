@@ -1,0 +1,29 @@
+<div class="card-deck">
+
+  <!--Card-->
+  <div *ngFor="let release of releases" class="card mb-3">
+    <!--Card image-->
+    <div class="view overlay">
+      <img class="img-fluid" [src]="release.img" alt="Card image cap">
+      <a href="product/ {{ release.id }}">
+        <div class="mask rgba-white-slight"></div>
+      </a>
+    </div>
+    <!--Card image-->
+
+    <!--Card content-->
+    <div class="card-body text-center">
+
+      <!--Title-->
+      <h4 class="card-title">{{ release.name }}</h4>
+
+      <!--Text-->
+      <p class="card-text">{{ release.type }}</p>
+      <p class="card-text">{{ release.brand }}</p>
+      <p class="card-text">{{ release.price }}</p>
+
+      <a href="product/{{ release.id }}" role="button" class="btn btn-light-blue btn-md">Detail</a>
+    </div>
+    <!--Card content-->
+  </div>
+</div>

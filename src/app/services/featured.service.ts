@@ -4,14 +4,11 @@ import {Observable} from 'rxjs/Observable';
 import {Product} from '../model/Product';
 
 @Injectable()
-export class ProductService {
-  BASE_URL = 'http://localhost:8000/api/product/1';
+export class FeaturedService {
+  BASE_URL = 'http://localhost:8000/api/getfeatureds';
   constructor(private http: HttpClient) {}
-  getProduct() {
-    return this.http.get(this.BASE_URL).map(res => {
-      console.log(res);
-      return res;
-    });
+  getFeatured() {
+    return this.http.get(this.BASE_URL);
   }
 }
 
