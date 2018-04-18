@@ -7,7 +7,7 @@
   <hr>
   <div class="row">
     <div class="col-md-5">
-      <img [src]="products.img" class="img-fluid" alt="Responsive image">
+      <img src="http://localhost:8000/uploads/{{products.img}}" class="img-fluid" alt="Responsive image">
     </div>
     <div class="col-md-7">
       <h1 class="text-center">
@@ -23,7 +23,7 @@
       <h3 style="color: #80e817;" class="text-center mt-2">Stock Available!</h3>
       <br>
       <h3 class="text-center">{{ products.price }}</h3>
-      <button type="button" [disabled]="isAvailable" class="btn btn-light-blue btn-lg btn-block">Buy Now</button>
+      <button type="button" (click)="" [disabled]="isAvailable" class="btn btn-light-blue btn-lg btn-block">Buy Now</button>
 
     </div>
 

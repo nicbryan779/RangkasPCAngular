@@ -30,11 +30,11 @@ export class ProductComponent implements OnInit {
 
   ngOnInit() {
     this.id = this.route.snapshot.params['id'];
-    this.getStock(this.id);
-    this.getProduct();
+    this.getStock();
+    this.getProduct(this.id);
   }
 
-  getProduct() {
+  getProduct(id) {
     this._productService.getProduct(this.id).subscribe(resp => {
       // this.products = data;
       // this.name = resp['data']['name']; OK
@@ -44,7 +44,7 @@ export class ProductComponent implements OnInit {
       // console.log(this.products.brand);
     });
   }
-  getStock(id) {
+  getStock() {
     if (this.products.stock > 0) {
       this.isAvailable = true;
       this.stock = 'Stock Available!';
@@ -52,5 +52,7 @@ export class ProductComponent implements OnInit {
       this.isAvailable = false;
       this.stock = 'Out of Stock';
     }
+  }
+  buyNow() {
   }
 }
