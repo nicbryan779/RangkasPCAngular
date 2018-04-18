@@ -1,0 +1,58 @@
+<div class="container">
+
+  <div class="jumbotron jumbotron-fluid mt-3">
+    <h1>lol</h1>
+    <div class="display-6">this is test</div>
+  </div>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-3 border-right">
+        <div class="form-group">
+          <h3>Filter by Platform :</h3>
+          <input mdbDeepDirective type="checkbox" class="filled-in" id="checkbox2" value="steam">
+          <label for="checkbox2">Steam</label>
+          <input mdbDeepDirective type="checkbox" class="filled-in" id="checkbox2" [value]="uplay">
+          <label for="checkbox2">Uplay</label>
+          <input mdbDeepDirective type="checkbox" class="filled-in" id="checkbox2" [value]="origin">
+          <label for="checkbox2">Origin</label>
+        </div>
+
+      </div>
+      <div class="col-md-9">
+
+        <div class="card-deck">
+
+          <!--Card-->
+          <div *ngFor="let all of alls" class="card mb-3">
+            <!--Card image-->
+            <div class="view overlay">
+              <img class="img-fluid" [src]="all.img" alt="Card image cap">
+              <a href="product/ {{ all.id }}">
+                <div class="mask rgba-white-slight"></div>
+              </a>
+            </div>
+            <!--Card image-->
+
+            <!--Card content-->
+            <div class="card-body text-center">
+
+              <!--Title-->
+              <h4 class="card-title">{{ all.name }}</h4>
+
+              <!--Text-->
+              <p class="card-text">{{ all.type }} | {{ all.brand }}</p>
+              <p class="card-text">{{ all.price }}</p>
+
+              <a href="product/{{ all.id }}" role="button" class="btn btn-light-blue btn-md">Add to Cart</a>
+            </div>
+            <!--Card content-->
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+
+</div>

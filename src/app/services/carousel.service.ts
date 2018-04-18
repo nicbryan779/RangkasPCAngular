@@ -4,14 +4,11 @@ import {Observable} from 'rxjs/Observable';
 import {Product} from '../model/Product';
 
 @Injectable()
-export class ProductService {
-  BASE_URL = 'http://localhost:8000/api/';
+export class CarouselService {
+  BASE_URL = 'http://localhost:8000/api/getcarousel';
   constructor(private http: HttpClient) {}
-  getProduct() {
-    return this.http.get(this.BASE_URL + '/product/').map(res => {
-      console.log(res);
-      return res;
-    });
+  getCarousel()  {
+    return this.http.get(this.BASE_URL);
   }
 }
 

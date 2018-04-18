@@ -1,9 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { FilterPipeModule } from 'ngx-filter-pipe';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -30,6 +32,9 @@ import {NewReleaseService} from './services/newRelease.service';
 import { FeaturedComponent } from './home/featured/featured.component';
 import { TopComponent } from './home/top/top.component';
 import { NewReleaseComponent } from './home/new-release/new-release.component';
+import { AllProductComponent } from './product/all-product/all-product.component';
+import {CarouselService} from './services/carousel.service';
+import {AllProductService} from './services/allProduct.service';
 
 @NgModule({
   declarations: [
@@ -53,16 +58,20 @@ import { NewReleaseComponent } from './home/new-release/new-release.component';
     VerificationfalseComponent,
     FeaturedComponent,
     TopComponent,
-    NewReleaseComponent
+    NewReleaseComponent,
+    AllProductComponent,
   ],
   imports: [
     BrowserModule,
+    MDBBootstrapModule.forRoot(),
     NgbModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    FilterPipeModule
   ],
-  providers: [AuthService, ProductService, FeaturedService, NewReleaseService],
-  bootstrap: [AppComponent]
+  providers: [AuthService, ProductService, FeaturedService, NewReleaseService, CarouselService, AllProductService],
+  bootstrap: [AppComponent],
+  schemas: [ NO_ERRORS_SCHEMA ]
 })
 export class AppModule { }

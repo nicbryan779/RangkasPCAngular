@@ -11,6 +11,7 @@ import { ResetpasswordComponent } from './resetpassword/resetpassword.component'
 import { VerificationsuccessComponent } from './verification/verificationsuccess/verificationsuccess.component';
 import { VerificationfalseComponent } from './verification/verificationfalse/verificationfalse.component';
 import {ProductComponent} from './product/product.component';
+import {AllProductComponent} from './product/all-product/all-product.component';
 
 const routes: Routes =
 [
@@ -25,6 +26,7 @@ const routes: Routes =
   { path: 'verificationsuccessful', component: VerificationsuccessComponent},
   { path: 'verificationfalse', component: VerificationfalseComponent },
   { path: 'product', component: ProductComponent },
+  { path: 'all-product', component: AllProductComponent },
   { path: '**', component: HomeComponent } // Change to does not exit component
   // { path: 'detail/:id', component: HeroDetailComponent },
 ];
