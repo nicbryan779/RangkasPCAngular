@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FeaturedService} from '../../services/featured.service';
-import {NewReleaseService} from '../../services/newRelease.service';
+import { HomeService } from '../../services/home.service';
 
 @Component({
   selector: 'app-new-release',
@@ -9,10 +8,10 @@ import {NewReleaseService} from '../../services/newRelease.service';
 })
 export class NewReleaseComponent implements OnInit {
   releases = [];
-  constructor(private _newRelease: NewReleaseService) { }
+  constructor(private homeService: HomeService) { }
 
   ngOnInit() {
-    this._newRelease.getRelease()
+    this.homeService.getRelease()
       .subscribe(res => { this.releases = res['data'];
         console.log(this.releases);
       });

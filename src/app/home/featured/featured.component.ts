@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FeaturedService} from '../../services/featured.service';
+import { HomeService } from '../../services/home.service';
 
 @Component({
   selector: 'app-featured',
@@ -8,10 +8,10 @@ import {FeaturedService} from '../../services/featured.service';
 })
 export class FeaturedComponent implements OnInit {
   features = [];
-  constructor(private _featuredService: FeaturedService) { }
+  constructor(private homeService: HomeService) { }
 
   ngOnInit() {
-    this._featuredService.getFeatured()
+    this.homeService.getFeatured()
       .subscribe(res => { this.features = res['featured'];
         console.log(this.features);
       });

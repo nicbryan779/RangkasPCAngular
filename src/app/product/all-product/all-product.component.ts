@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {AllProductService} from '../../services/allProduct.service';
+import { ProductService } from '../../services/product.service';
 
 @Component({
   selector: 'app-all-product',
@@ -9,10 +9,10 @@ import {AllProductService} from '../../services/allProduct.service';
 export class AllProductComponent implements OnInit {
   alls = [];
   // platformFilter: any = {type: value}
-  constructor(private _allProductService: AllProductService) { }
+  constructor(private productService: ProductService) { }
 
   ngOnInit() {
-    this._allProductService.getProducts()
+    this.productService.getProducts()
       .subscribe(res => { this.alls = res['data'];
       console.log(this.alls);
       });

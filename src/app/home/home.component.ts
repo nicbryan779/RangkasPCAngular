@@ -1,11 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Carousel} from '../model/Carousel';
-import {Features} from '../model/Features';
-import {Release} from '../model/Release';
-import {ProductService} from '../services/product.service';
-import {Product} from '../model/product';
-import {FeaturedService} from '../services/featured.service';
-import {CarouselService} from '../services/carousel.service';
+import { HomeService } from '../services/home.service';
 
 @Component({
   selector: 'app-home',
@@ -16,10 +10,10 @@ export class HomeComponent implements OnInit {
   myClasses = {};
   // features: Features[];
   carousels = [];
-  constructor(private _carouselService: CarouselService) { }
+  constructor(private homeService: HomeService) { }
 
   ngOnInit() {
-    this._carouselService.getCarousel()
+    this.homeService.getCarousel()
       .subscribe(res => { this.carousels = res['carousel'];
       // console.log(res['carousel'][0]['url']);
       console.log(this.carousels);
