@@ -4,7 +4,7 @@
   <div *ngFor="let release of releases" class="card mb-3">
     <!--Card image-->
     <div class="view overlay">
-      <img class="img-fluid" [src]="release.img" alt="Card image cap">
+      <img class="img-fluid" src="http://localhost:8000/uploads/{{release.img}}" alt="Card image cap">
       <a href="product/ {{ release.id }}">
         <div class="mask rgba-white-slight"></div>
       </a>

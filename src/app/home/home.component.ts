@@ -22,7 +22,7 @@ export class HomeComponent implements OnInit {
     this._carouselService.getCarousel()
       .subscribe(res => { this.carousels = res['carousel'];
       // console.log(res['carousel'][0]['url']);
-      // console.log(this.carousels);
+      console.log(this.carousels);
       // console.log(this.carousels);
       });
   }
