@@ -5,6 +5,21 @@
         <h1 class="text-center pb-4 pt-3">
           <span class="text-primary">
             Cart
+            <!--Card-->
+            <div *ngFor="let cart of carts" class="card mb-3">
+
+              <!--Card content-->
+              <div class="card-body text-center">
+                <h4 class="card-title">{{ cart.product.name }}</h4>
+                <label>Total Price</label>
+                <p class="card-text">{{ cart.total_price }}</p>
+                <label>Amount Bought</label>
+                <p class="card-text">{{ cart.amount }}</p>
+              </div>
+            </div>
+            <!--Card Content-->
+
+            <button type="button" class="btn btn-light-blue btn-lg btn-block" (click)="goToCheckout()">Checkout</button>
           </span>
         </h1>
       </div>
