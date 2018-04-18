@@ -27,6 +27,7 @@ export class ProductComponent implements OnInit {
   };
   isAvailable = true;
   stock: string;
+  amount: number;
   id: string;
   constructor(
     private authService: AuthService,
@@ -38,16 +39,19 @@ export class ProductComponent implements OnInit {
   ngOnInit() {
     this.id = this.route.snapshot.params['id'];
     this.getStock();
-    this.getProduct(this.id);
+    this.getProduct();
+    console.log(localStorage.getItem('token'));
   }
 
   validateLogin() {
     if (!this.authService.isLogin()) {
       this.router.navigateByUrl('/login');
+    } else {
+      this.addToCart();
     }
   }
 
-  getProduct(id) {
+  getProduct() {
     this._productService.getProduct(this.id).subscribe(resp => {
       // this.products = data;
       // this.name = resp['data']['name']; OK
@@ -60,6 +64,7 @@ export class ProductComponent implements OnInit {
 
   getStock() {
     if (this.products.stock > 0) {
+      console.log(this.products.stock);
       this.isAvailable = true;
       this.stock = 'Stock Available!';
     } else {
@@ -69,5 +74,19 @@ export class ProductComponent implements OnInit {
   }
 
   buyNow() {
+  }
+
+  addToCart() {
+    this._productService.addToCart(this.products.id, this.amount).subscribe(
+      () => {
+        console.log(this.products.id);
+        console.log(this.amount);
+        alert('Add to Cart Completed');
+        this.router.navigateByUrl('/home');
+        },
+      err => {
+        alert('Add to Cart is Wrong');
+      }
+    );
   }
 }

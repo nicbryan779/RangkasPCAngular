@@ -22,7 +22,10 @@
       <br>
       <h3 style="color: #80e817;" class="text-center mt-2">{{ stock }}</h3>
       <br>
-      <h3 class="text-center">{{ products.price }}</h3>
+      <h3 class="text-center">Rp. {{ products.price }}</h3>
+      <label>Amount</label>
+      <input type="number" name="amount" [(ngModel)]="amount" placeholder="Insert amount you want to purchase">
+      <br><br>
       <button type="button" class="btn btn-light-blue btn-lg btn-block" (click)="validateLogin()">Buy Now</button>
 
     </div>
@@ -37,6 +40,7 @@
         <div class="nav nav-tabs" id="nav-tab" role="tablist">
           <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-desc" role="tab" aria-controls="nav-home" aria-selected="true">Product Description</a>
           <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-spec" role="tab" aria-controls="nav-profile" aria-selected="false">System Requirement</a>
+
         </div>
       </nav>
       <div class="tab-content" id="nav-tabContent">

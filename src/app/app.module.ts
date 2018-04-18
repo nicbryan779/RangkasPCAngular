@@ -66,7 +66,7 @@ import { ProductService } from './services/product.service';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    FilterPipeModule
+    FilterPipeModule,
   ],
   providers: [AuthService, ProductService, HomeService],
   bootstrap: [AppComponent],

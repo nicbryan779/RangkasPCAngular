@@ -6,7 +6,7 @@
     <!--Card image-->
     <div class="view overlay">
       <img class="img-fluid" src="http://localhost:8000/uploads/{{feature.img}}" alt="Card image cap">
-      <a href="/product/{{ feature.id }}">
+      <a routerLink="/product/{{ feature.id }}">
         <div class="mask rgba-white-slight"></div>
       </a>
     </div>
@@ -20,7 +20,7 @@
       <p class="card-text">{{ feature.brand }}</p>
       <p class="card-text">{{ feature.price }}</p>
 
-      <a href="product/{{ feature.id }}" role="button" class="btn btn-light-blue btn-md">Detail</a>
+      <a routerLink="/product/{{ feature.id }}" role="button" class="btn btn-light-blue btn-md">Detail</a>
     </div>
     <!--Card content-->
 
