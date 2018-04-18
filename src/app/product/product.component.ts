@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductService } from '../services/product.service';
+
 import { Product } from '../model/product';
-import { ActivatedRoute } from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
+import { AuthService } from '../services/auth.service';
+import { ProductService } from '../services/product.service';
 
 @Component({
   selector: 'app-product',
@@ -26,12 +28,23 @@ export class ProductComponent implements OnInit {
   isAvailable = true;
   stock: string;
   id: string;
-  constructor(private _productService: ProductService, private route: ActivatedRoute) { }
+  constructor(
+    private authService: AuthService,
+    private _productService: ProductService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) { }
 
   ngOnInit() {
     this.id = this.route.snapshot.params['id'];
     this.getStock();
     this.getProduct(this.id);
+  }
+
+  validateLogin() {
+    if (!this.authService.isLogin()) {
+      this.router.navigateByUrl('/login');
+    }
   }
 
   getProduct(id) {
@@ -44,6 +57,7 @@ export class ProductComponent implements OnInit {
       // console.log(this.products.brand);
     });
   }
+
   getStock() {
     if (this.products.stock > 0) {
       this.isAvailable = true;
@@ -53,6 +67,7 @@ export class ProductComponent implements OnInit {
       this.stock = 'Out of Stock';
     }
   }
+
   buyNow() {
   }
 }
