@@ -58,6 +58,8 @@ export class ProfileComponent implements OnInit {
   }
 
   submitEdit() {
+    console.log(this.user.id);
+    console.log(this.user.phone);
     this.authService.edit(this.user).subscribe(
       () => {
         alert('Edit Successful');

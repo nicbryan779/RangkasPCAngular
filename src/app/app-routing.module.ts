@@ -26,6 +26,7 @@ const routes: Routes =
   { path: 'verificationsuccessful', component: VerificationsuccessComponent},
   { path: 'verificationfalse', component: VerificationfalseComponent },
   { path: 'product', component: ProductComponent },
+  { path: 'product/:id', component: ProductComponent },
   { path: 'all-product', component: AllProductComponent },
   { path: '**', component: HomeComponent } // Change to does not exit component
   // { path: 'detail/:id', component: HeroDetailComponent },

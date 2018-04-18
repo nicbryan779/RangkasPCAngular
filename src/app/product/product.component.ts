@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {ProductService} from '../services/product.service';
-import {Product} from '../model/product';
+import { ProductService } from '../services/product.service';
+import { Product } from '../model/product';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-product',
@@ -24,15 +25,17 @@ export class ProductComponent implements OnInit {
   };
   isAvailable = true;
   stock: string;
-  constructor(private _productService: ProductService) { }
+  id: string;
+  constructor(private _productService: ProductService, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.getStock();
+    this.id = this.route.snapshot.params['id'];
+    this.getStock(this.id);
     this.getProduct();
   }
 
   getProduct() {
-    this._productService.getProduct().subscribe(resp => {
+    this._productService.getProduct(this.id).subscribe(resp => {
       // this.products = data;
       // this.name = resp['data']['name']; OK
       this.products = resp['data'];
@@ -41,7 +44,7 @@ export class ProductComponent implements OnInit {
       // console.log(this.products.brand);
     });
   }
-  getStock() {
+  getStock(id) {
     if (this.products.stock > 0) {
       this.isAvailable = true;
       this.stock = 'Stock Available!';

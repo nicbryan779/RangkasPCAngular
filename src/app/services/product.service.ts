@@ -7,8 +7,8 @@ import {Product} from '../model/Product';
 export class ProductService {
   BASE_URL = 'http://localhost:8000/api/';
   constructor(private http: HttpClient) {}
-  getProduct() {
-    return this.http.get(this.BASE_URL + '/product/').map(res => {
+  getProduct(id) {
+    return this.http.get(this.BASE_URL + 'product/' + id).map(res => {
       console.log(res);
       return res;
     });
