@@ -29,7 +29,9 @@ export class ProductService {
   }
 
   addToCart(id, amount) {
-    return this.http.post(this.BASE_URL + 'addtocart/' + id, amount, httpOptions);
+    let submitAmount = {'amount': amount};
+    console.log(submitAmount);
+    return this.http.post(this.BASE_URL + 'addtocart/' + id, submitAmount, httpOptions);
   }
 
   getCart(): Observable<Cart[]> {
