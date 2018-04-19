@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { Product } from '../model/Product';
+import { Cart } from '../model/Cart';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -28,6 +29,12 @@ export class ProductService {
   }
 
   addToCart(id, amount) {
-    return this.http.post(this.BASE_URL + 'addtocart/' + id, amount, httpOptions);
+    let submitAmount = {'amount': amount};
+    console.log(submitAmount);
+    return this.http.post(this.BASE_URL + 'addtocart/' + id, submitAmount, httpOptions);
+  }
+
+  getCart(): Observable<Cart[]> {
+    return this.http.get<Cart[]>(this.BASE_URL + 'viewcart', httpOptions);
   }
 }

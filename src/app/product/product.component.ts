@@ -28,7 +28,6 @@ export class ProductComponent implements OnInit {
   isAvailable = true;
   stock: string;
   amount: number;
-
   numStock: number;
 
   id: string;
@@ -73,7 +72,7 @@ export class ProductComponent implements OnInit {
 
   getStock() {
     if (this.products.stock > 0) {
-      console.log(this.products.stock);
+      console.log('stock' + this.products.stock);
       this.isAvailable = true;
       this.stock = 'Stock Available!';
     } else {
