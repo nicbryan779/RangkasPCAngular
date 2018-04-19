@@ -34,6 +34,9 @@ import { AuthService } from './services/auth.service';
 import { HomeService } from './services/home.service';
 import { ProductService } from './services/product.service';
 
+import { NonuserGuard } from './guard/nonuser.guard';
+import { UserGuard } from './guard/user.guard';
+
 
 @NgModule({
   declarations: [
@@ -70,7 +73,7 @@ import { ProductService } from './services/product.service';
     FormsModule,
     FilterPipeModule,
   ],
-  providers: [AuthService, ProductService, HomeService],
+  providers: [AuthService, ProductService, HomeService, NonuserGuard, UserGuard],
   bootstrap: [AppComponent],
   schemas: [ NO_ERRORS_SCHEMA ]
 })
