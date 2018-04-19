@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 
 import { Product } from '../model/product';
 import {ActivatedRoute, Router} from '@angular/router';
@@ -35,7 +36,8 @@ export class ProductComponent implements OnInit {
     private authService: AuthService,
     private _productService: ProductService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private sanitizer: DomSanitizer
   ) { }
 
   ngOnInit() {
@@ -63,11 +65,15 @@ export class ProductComponent implements OnInit {
     this._productService.getProduct(this.id).subscribe(resp => {
       // this.products = data;
       // this.name = resp['data']['name']; OK
-      this.products = resp['data'];;
+      this.products = resp['data'];
       console.log(this.products.name);
       // console.log(data);
       // console.log(this.products.brand);
     });
+  }
+
+  getVideo() {
+    return this.sanitizer.bypassSecurityTrustResourceUrl(this.products.video);
   }
 
   getStock() {

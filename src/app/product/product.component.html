@@ -46,6 +46,10 @@
         <div class="tab-pane fade show active" id="nav-desc" role="tabpanel" aria-labelledby="nav-home-tab">
           <br>
           {{ products.description }}
+          <br><br><hr>
+          <label>Trailer: </label>
+          <br>
+          <iframe width="560" height="315" [src]="getVideo()" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
         </div>
         <div class="tab-pane fade border-info" id="nav-spec" role="tabpanel" aria-labelledby="nav-spec-tab">
           <ul class="list-group list-group-flush">
