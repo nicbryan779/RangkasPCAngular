@@ -82,7 +82,7 @@ export class ProductComponent implements OnInit {
         console.log(this.products.id);
         console.log(this.amount);
         alert('Add to Cart Completed');
-        // this.router.navigateByUrl('/home');
+        this.router.navigateByUrl('/home');
         },
       err => {
         alert('Add to Cart is Wrong');
