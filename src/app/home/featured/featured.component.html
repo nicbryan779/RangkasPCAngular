@@ -18,7 +18,7 @@
       <h4 class="card-title">{{ feature.name }}</h4>
       <p class="card-text">{{ feature.type }}</p>
       <p class="card-text">{{ feature.brand }}</p>
-      <p class="card-text">{{ feature.price }}</p>
+      <p class="card-text">{{ feature.price | currency:'Rp.' }}</p>
 
       <a routerLink="/product/{{ feature.id }}" role="button" class="btn btn-light-blue btn-md">Detail</a>
     </div>

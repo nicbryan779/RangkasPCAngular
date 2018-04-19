@@ -28,6 +28,9 @@ export class ProductComponent implements OnInit {
   isAvailable = true;
   stock: string;
   amount: number;
+
+  numStock: number;
+
   id: string;
   constructor(
     private authService: AuthService,
@@ -39,8 +42,14 @@ export class ProductComponent implements OnInit {
   ngOnInit() {
     this.id = this.route.snapshot.params['id'];
     this.getStock();
+
     this.getProduct();
     console.log(localStorage.getItem('token'));
+
+    this.getProduct();
+    console.log('stock is' + this.numStock);
+    console.log(this.products.name);
+
   }
 
   validateLogin() {
@@ -55,7 +64,7 @@ export class ProductComponent implements OnInit {
     this._productService.getProduct(this.id).subscribe(resp => {
       // this.products = data;
       // this.name = resp['data']['name']; OK
-      this.products = resp['data'];
+      this.products = resp['data'];;
       console.log(this.products.name);
       // console.log(data);
       // console.log(this.products.brand);

@@ -1,7 +1,7 @@
 <!--CAROUSEL START-->
 <mdb-carousel [isControls]="true" [animation]="'slide'">
   <mdb-slide *ngFor="let carousel of carousels" class="myCarousel">
-    <img class="d-block w-100 box" src="http://localhost:8000/uploads/{{ carousel.url }}" alt="{{ carousel.name }}">
+    <img class="d-block w-100 box" src="http://localhost:8000/uploads/{{carousel.url}}" alt="{{ carousel.name }}">
   </mdb-slide>
 </mdb-carousel>
 <!--END OF CAROUSEL-->

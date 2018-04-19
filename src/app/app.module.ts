@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { FilterPipeModule } from 'ngx-filter-pipe';
+import { NgAisModule } from 'angular-instantsearch';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -62,6 +63,7 @@ import { ProductService } from './services/product.service';
   imports: [
     BrowserModule,
     MDBBootstrapModule.forRoot(),
+    NgAisModule.forRoot(),
     NgbModule,
     AppRoutingModule,
     HttpClientModule,

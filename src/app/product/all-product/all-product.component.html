@@ -1,58 +1,72 @@
 <div class="container">
 
   <div class="jumbotron jumbotron-fluid mt-3">
-    <h1>lol</h1>
-    <div class="display-6">this is test</div>
+    <h1>Products</h1>
+    <div class="display-6">All listed products</div>
   </div>
 
   <div class="container-fluid">
+  <ng-ais-instantsearch
+  [config]="algoliaConfig">
     <div class="row">
       <div class="col-md-3 border-right">
         <div class="form-group">
-          <h3>Filter by Platform :</h3>
-          <input mdbDeepDirective type="checkbox" class="filled-in" id="checkbox2" value="steam">
-          <label for="checkbox2">Steam</label>
-          <input mdbDeepDirective type="checkbox" class="filled-in" id="checkbox2" [value]="uplay">
-          <label for="checkbox2">Uplay</label>
-          <input mdbDeepDirective type="checkbox" class="filled-in" id="checkbox2" [value]="origin">
-          <label for="checkbox2">Origin</label>
+          <h2>Filter by Platform:</h2>
+          <ng-ais-refinement-list attribute="type"></ng-ais-refinement-list>
+
+          <div class="form-group">
+            <h2>Genre: ?</h2>
+            <ng-ais-refinement-list attribute="brand">
+            </ng-ais-refinement-list>
+          </div>
+
         </div>
 
       </div>
-      <div class="col-md-9">
-
-        <div class="card-deck">
-
-          <!--Card-->
-          <div *ngFor="let all of alls" class="card mb-3">
+      <div class="col-md-8 ml-5">
+        <ng-ais-search-box placeholder="Search for ..."></ng-ais-search-box>
+        <div class="row mt-3">
+          <ng-ais-hits>
+            <ng-template let-hits="hits" let-results="results">
+              <div *ngIf="hits.length === 0">
+                <strong>{{results.query}}</strong>
+              </div>
+            <div class="card-columns">
+          <div *ngFor="let hit of hits" class="card mb-3">
             <!--Card image-->
             <div class="view overlay">
-              <img class="img-fluid" [src]="all.img" alt="Card image cap">
-              <a href="product/ {{ all.id }}">
+              <img class="img-fluid" src="http://localhost:8000/uploads/{{hit.img}}" alt="{{hit.name}}">
+              <a href="product/{{hit.id}}">
                 <div class="mask rgba-white-slight"></div>
               </a>
             </div>
             <!--Card image-->
-
             <!--Card content-->
             <div class="card-body text-center">
 
               <!--Title-->
-              <h4 class="card-title">{{ all.name }}</h4>
-
+              <ng-ais-highlight attribute="name" [hit]="hit"><h4 class="card-title">{{ hit.name }}</h4></ng-ais-highlight>
               <!--Text-->
-              <p class="card-text">{{ all.type }} | {{ all.brand }}</p>
-              <p class="card-text">{{ all.price }}</p>
+              <p class="card-text">{{ hit.type }} | {{ hit.brand }}</p>
+              <p class="card-text">{{ hit.price | currency:'Rp.' }}</p>
 
-              <a href="product/{{ all.id }}" role="button" class="btn btn-light-blue btn-md">Add to Cart</a>
+              <a href="product/{{ hit.id}}" role="button" class="btn btn-light-blue btn-md">Add to Cart</a>
             </div>
             <!--Card content-->
           </div>
+            </div>
+            </ng-template>
+          </ng-ais-hits>
+
+        </div>
+        <div class="row align-items-center">
+          <ng-ais-pagination></ng-ais-pagination>
+        </div>
         </div>
 
 
-      </div>
     </div>
-  </div>
+  </ng-ais-instantsearch>
 
+</div>
 </div>

@@ -20,7 +20,7 @@
       <!--Text-->
       <p class="card-text">{{ release.type }}</p>
       <p class="card-text">{{ release.brand }}</p>
-      <p class="card-text">{{ release.price }}</p>
+      <p class="card-text">{{ release.price | currency:'Rp.' }}</p>
 
       <a routerLink="/product/{{ release.id }}" role="button" class="btn btn-light-blue btn-md">Detail</a>
     </div>
