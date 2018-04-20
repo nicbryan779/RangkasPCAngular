@@ -1,65 +1,83 @@
-<div class="row">
-  <div class="col-md-6 mx-auto">
-    <div class="card">
-      <div class="card-body">
-        <h1 class="text-center pb-4 pt-3">
-          <span class="text-primary">
-            Edit Profile
-          </span>
-        </h1>
-        <form #userForm="ngForm" (submit)="submitEdit()">
-          <div class="form-group">
-            <label>Name</label>
-            <input name="Name" value="{{ this.user.name }}" [(ngModel)]="user.name" #name="ngModel" [ngClass]="{'is-invalid':name.errors && name.touched}" class="form-control" required>
-            <div [hidden]="!name.errors?.required" class="invalid-feedback">
-              Name is required!
+<div class="jumbotron">
+  <h2>lol</h2>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+        <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true"><h5>Home</h5></a>
+        <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false"><h5>Profile</h5></a>
+        <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false"><h5>Transaction</h5></a>
+        <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false"><h5>Setting</h5></a>
+      </div>
+    </div>
+    <div class="col-md-8">
+      <div class="tab-content" id="v-pills-tabContent">
+        <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+          <h3>Hi, {{this.user.name}}</h3>
+
+
+        </div>
+        <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+          <form #userForm="ngForm" (submit)="submitEdit()">
+            <div class="form-inline">
+              <label for="nameField">Name : </label>
+              <input type="text" name="Name" id="nameField" [(ngModel)]="user.name" #name="ngModel" [ngClass]="{'is-invalid':name.errors && name.touched}" class="form-control" required>
+              <div [hidden]="!name.errors?.required" class="invalid-feedback">
+                Name is required!
+              </div>
             </div>
-          </div>
-          <div class="form-group">
-            <label>birthdate</label>
-            <input name="BirthDate" type="date" value="{{ this.user.birthdate }}" [(ngModel)]="user.birthdate" #birthdate="ngModel" [ngClass]="{'is-invalid':birthdate.errors && birthdate.touched}" class="form-control" required>
-            <div [hidden]="!birthdate.errors?.required" class="invalid-feedback">
-              Birthdate is required!
+            <div class="form-inline">
+              <label for="birthPicker">Birth Date : </label>
+              <input type="date" name="BirthDate" id="birthPicker" type="date" [(ngModel)]="user.birthdate" #birthdate="ngModel" [ngClass]="{'is-invalid':birthdate.errors && birthdate.touched}" class="form-control" required>
+              <div [hidden]="!birthdate.errors?.required" class="invalid-feedback">
+                Birthdate is required!
+              </div>
             </div>
-          </div>
-          <div class="form-group">
-            <label>phone</label>
-            <input name="Phone" value="{{ this.user.phone }}" [(ngModel)]="user.phone" #phone="ngModel" [ngClass]="{'is-invalid':phone.errors && phone.touched}" class="form-control" required>
-            <div [hidden]="!phone.errors?.required" class="invalid-feedback">
-              Phone is required!
+            <div class="form-inline">
+              <label for="phoneField">Phone : </label>
+              <input type="tel" name="Phone" id="phoneField" [(ngModel)]="user.phone" #phone="ngModel" [ngClass]="{'is-invalid':phone.errors && phone.touched}" class="form-control" required>
+              <div [hidden]="!phone.errors?.required" class="invalid-feedback">
+                Phone is required!
+              </div>
             </div>
-          </div>
-          <div class="form-group">
-            <label>address</label>
-            <input name="Address" value="{{ this.user.address }}" [(ngModel)]="user.address" #address="ngModel" [ngClass]="{'is-invalid':address.errors && address.touched}" class="form-control" required>
-            <div [hidden]="!address.errors?.required" class="invalid-feedback">
-              Address is required!
+            <div class="form-inline">
+              <label for="addressField">Address : </label>
+              <input type="text" name="Address" id="addressField" [(ngModel)]="user.address" #address="ngModel" [ngClass]="{'is-invalid':address.errors && address.touched}" class="form-control" required>
+              <div [hidden]="!address.errors?.required" class="invalid-feedback">
+                Address is required!
+              </div>
             </div>
-          </div>
-          <div class="form-group">
-            <label>city</label>
-            <input name="City" value="{{ this.user.city }}" [(ngModel)]="user.city" #city="ngModel" [ngClass]="{'is-invalid':city.errors && city.touched}" class="form-control" required>
-            <div [hidden]="!city.errors?.required" class="invalid-feedback">
-              City is required!
+            <div class="form-inline">
+              <label for="cityField">City : </label>
+              <input type="text" name="City" id="cityField" [(ngModel)]="user.city" #city="ngModel" [ngClass]="{'is-invalid':city.errors && city.touched}" class="form-control" required>
+              <div [hidden]="!city.errors?.required" class="invalid-feedback">
+                City is required!
+              </div>
             </div>
-          </div>
-          <div class="form-group">
-            <label>state</label>
-            <input name="State" value="{{ this.user.state }}" [(ngModel)]="user.state" #state="ngModel" [ngClass]="{'is-invalid':state.errors && state.touched}" class="form-control" required>
-            <div [hidden]="!state.errors?.required" class="invalid-feedback">
-              State is required!
+            <div class="form-inline">
+              <label>State : </label>
+              <input type="text" name="State" [(ngModel)]="user.state" #state="ngModel" [ngClass]="{'is-invalid':state.errors && state.touched}" class="form-control" required>
+              <div [hidden]="!state.errors?.required" class="invalid-feedback">
+                State is required!
+              </div>
             </div>
-          </div>
-          <div class="form-group">
-            <label>zip</label>
-            <input name="Zip" value="{{ this.user.zip }}" [(ngModel)]="user.zip" #zip="ngModel" [ngClass]="{'is-invalid':zip.errors && zip.touched}" class="form-control" required>
-            <div [hidden]="!zip.errors?.required" class="invalid-feedback">
-              Zip is required!
+            <div class="form-inline">
+              <label>Zip : </label>
+              <input type="number" name="Zip" [(ngModel)]="user.zip" #zip="ngModel" [ngClass]="{'is-invalid':zip.errors && zip.touched}" class="form-control" required>
+              <div [hidden]="!zip.errors?.required" class="invalid-feedback">
+                Zip is required!
+              </div>
             </div>
-          </div>
-          <input [disabled]="!userForm.form.valid" type="submit" value="Edit" class="btn btn-primary btn-block">
-        </form>
+            <input [disabled]="!userForm.form.valid" type="submit" value="Edit" class="btn btn-primary btn-block">
+          </form>
+        </div>
+        <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">Transaction(s)</div>
+        <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">Setting</div>
       </div>
     </div>
   </div>
 </div>
+
+
+

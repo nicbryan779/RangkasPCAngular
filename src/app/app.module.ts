@@ -7,6 +7,9 @@ import { FormsModule } from '@angular/forms';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { FilterPipeModule } from 'ngx-filter-pipe';
 import { NgAisModule } from 'angular-instantsearch';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatButtonModule, MatCheckboxModule} from '@angular/material';
+
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -71,7 +74,10 @@ import { UserGuard } from './guard/user.guard';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    FilterPipeModule
+    FilterPipeModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatCheckboxModule
   ],
   providers: [AuthService, ProductService, HomeService, NonuserGuard, UserGuard],
   bootstrap: [AppComponent],
