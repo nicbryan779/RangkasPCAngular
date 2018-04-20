@@ -28,7 +28,7 @@
               </div>
             </div>
             <div class="form-inline">
-              <label for="birthPicker">Birth Date: </label><br>
+              <label for="birthPicker">Birth Date: </label>
               <input type="date" name="BirthDate" id="birthPicker" type="date" [(ngModel)]="user.birthdate" #birthdate="ngModel" [ngClass]="{'is-invalid':birthdate.errors && birthdate.touched}" class="form-control" required>
               <div [hidden]="!birthdate.errors?.required" class="invalid-feedback">
                 Birthdate is required!

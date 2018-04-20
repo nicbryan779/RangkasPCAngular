@@ -38,6 +38,8 @@ export class CartComponent implements OnInit {
   }
 
   remove1(id) {
-    console.log('Remove');
+    this.productService.remove1(id).subscribe(
+      resp => console.log(id)
+    );
   }
 }
