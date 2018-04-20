@@ -15,8 +15,6 @@
       <div class="tab-content" id="v-pills-tabContent">
         <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
           <h3>Hi, {{this.user.name}}</h3>
-
-
         </div>
         <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
           <form #userForm="ngForm" (submit)="submitEdit()">
@@ -73,7 +71,28 @@
           </form>
         </div>
         <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
-          Transaction(s)
+
+          <table class="table table-hover">
+            <thead>
+            <tr>
+              <th>Invoice ID</th>
+              <th>Total Item</th>
+              <th>Total Price</th>
+              <th>Status</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let transaction of transactions">
+              <td>{{ transaction.id }}</td>
+              <td>{{ transaction.total_item }}</td>
+              <!--<td>{{ transactio }}</td>-->
+              <td>{{ transaction.status }}</td>
+            </tr>
+
+            </tbody>
+          </table>
+
+
         </div>
         <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
           <h4>RESET PASSWORD</h4>
