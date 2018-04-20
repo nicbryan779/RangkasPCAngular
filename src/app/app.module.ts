@@ -71,7 +71,7 @@ import { UserGuard } from './guard/user.guard';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    FilterPipeModule,
+    FilterPipeModule
   ],
   providers: [AuthService, ProductService, HomeService, NonuserGuard, UserGuard],
   bootstrap: [AppComponent],

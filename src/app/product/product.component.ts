@@ -1,9 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 
+import { DomSanitizer } from '@angular/platform-browser';
+
 import { Product } from '../model/product';
-import {ActivatedRoute, Router} from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { ProductService } from '../services/product.service';
+
+
+// import { YoutubePlayerModule } from 'ngx-youtube-player';
+// import { YoutubeModule } from 'angularx-youtube';
+
 
 @Component({
   selector: 'app-product',
@@ -34,17 +41,14 @@ export class ProductComponent implements OnInit {
     private authService: AuthService,
     private _productService: ProductService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private sanitizer: DomSanitizer
   ) { }
 
   ngOnInit() {
     this.id = this.route.snapshot.params['id'];
-    this.getStock(this.id);
-
     this.getProduct();
-    console.log(localStorage.getItem('token'));
-
-    this.getProduct();
+    this.getVideo();
 
   }
 
@@ -58,21 +62,13 @@ export class ProductComponent implements OnInit {
 
   getProduct() {
     this._productService.getProduct(this.id).subscribe(resp => {
-      // this.products = data;
-      // this.name = resp['data']['name']; OK
       this.products = resp['data'];
-      this.numStock = resp['data']['stock'];
-      // console.log(data);
-      // console.log(this.products.brand);
+      this.getStock();
     });
   }
 
-  getStock(pId) {
-    this._productService.getProduct(pId)
-      .subscribe(resp => this.products = resp['data'])
-    console.log(this.products.stock + 'dr getstock')
+  getStock() {
     if (this.products.stock > 0) {
-      console.log('stock dr getstock' + this.products.stock);
       this.isAvailable = true;
       this.stock = 'Stock Available!';
     } else {
@@ -81,7 +77,8 @@ export class ProductComponent implements OnInit {
     }
   }
 
-  buyNow() {
+  getVideo() {
+    return this.sanitizer.bypassSecurityTrustResourceUrl(this.products.video);
   }
 
   addToCart() {
