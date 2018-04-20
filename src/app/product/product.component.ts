@@ -28,9 +28,8 @@ export class ProductComponent implements OnInit {
   isAvailable = true;
   stock: string;
   amount: number;
-  numStock: number;
-
   id: string;
+
   constructor(
     private authService: AuthService,
     private _productService: ProductService,
