@@ -1,47 +1,28 @@
-<div class="row">
-  <div class="col-md-6 mx-auto">
-    <div class="card">
-      <div class="card-body">
-        <h1 class="text-center pb-4 pt-3">
-          <span class="text-primary">
-            Cart
-            <!--Card-->
-            <div *ngFor="let cart of carts" class="card mb-3">
-              <!--Image-->
-              <div class="view overlay">
-                <img class="img-fluid center" src="http://localhost:8000/uploads/{{ cart.product.img }}" alt="Card image cap" height="400" width="300">
-              </div>
-              <!--Image-->
-              <!--Card content-->
-              <div class="card-body text-center">
-                <h4 class="card-title">{{ cart.product.name }}</h4>
-                <label>Total Price</label>
-                <p class="card-text">{{ cart.total_price }}</p>
-                <label>Amount Bought</label>
-                <div class="input-group">
-                  <span class="input-group-btn">
-                    <button type="button" class="btn btn-default btn-number" (click)="remove1()">
-                      <i class="fa fa-minus"></i>
-                    </button>
-                  </span>
-                  <div class="input-group-text" id="btnGroupAddon">{{ cart.amount }}</div>
-                  <span class="input-group-btn">
-                    <button type="button" class="btn btn-default btn-number" (click)="add1()">
-                      <i class="fa fa-plus"></i>
-                    </button>
-                  </span>
-              </div>
-                <!--<p class="card-text">{{ cart.amount }}</p>-->
-              </div>
-              <!--Card Content-->
-              <button type="button" class="btn btn-light-blue btn-lg btn-block" routerLink="/product/{{ cart.product.id }}">View Detail</button>
-            </div>
-            <!--Card-->
-
-            <button type="button" class="btn btn-light-blue btn-lg btn-block" (click)="goToCheckout()">Checkout</button>
-          </span>
-        </h1>
-      </div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 mx-auto mt-md-5">
+      <table class="table table-hover">
+        <thead>
+        <tr>
+          <th>#</th>
+          <th>Product Name</th>
+          <th>Qty</th>
+          <th>Detail</th>
+          <th>Sub Total</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let cart of carts">
+          <td><img class="img-fluid center" src="http://localhost:8000/uploads/{{cart.product.img}}" alt="Card image cap" height="200" width="200"></td>
+          <td>{{cart.product.name}}</td>
+          <td>{{cart.amount}}</td>
+          <td><a href="" routerLink="product/{{cart.product.id}}"><i class="fa fa-info"></i></a></td>
+          <td>{{cart.product.totalprice}}</td>
+        </tr>
+        </tbody>
+      </table>
+      <button type="button" class="btn btn-primary" (onclick)="goToCheckout()">Checkout</button>
     </div>
   </div>
 </div>
+
