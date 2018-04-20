@@ -18,10 +18,25 @@
                 <label>Total Price</label>
                 <p class="card-text">{{ cart.total_price }}</p>
                 <label>Amount Bought</label>
-                <p class="card-text">{{ cart.amount }}</p>
+                <div class="input-group">
+                  <span class="input-group-btn">
+                    <button type="button" class="btn btn-default btn-number" (click)="remove1()">
+                      <i class="fa fa-minus"></i>
+                    </button>
+                  </span>
+                  <div class="input-group-text" id="btnGroupAddon">{{ cart.amount }}</div>
+                  <span class="input-group-btn">
+                    <button type="button" class="btn btn-default btn-number" (click)="add1()">
+                      <i class="fa fa-plus"></i>
+                    </button>
+                  </span>
               </div>
+                <!--<p class="card-text">{{ cart.amount }}</p>-->
+              </div>
+              <!--Card Content-->
+              <button type="button" class="btn btn-light-blue btn-lg btn-block" routerLink="/product/{{ cart.product.id }}">View Detail</button>
             </div>
-            <!--Card Content-->
+            <!--Card-->
 
             <button type="button" class="btn btn-light-blue btn-lg btn-block" (click)="goToCheckout()">Checkout</button>
           </span>

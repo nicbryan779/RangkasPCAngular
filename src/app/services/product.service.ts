@@ -37,4 +37,12 @@ export class ProductService {
   getCart(): Observable<Cart[]> {
     return this.http.get<Cart[]>(this.BASE_URL + 'viewcart', httpOptions);
   }
+
+  add1(id) {
+    return this.http.get(this.BASE_URL + 'add1/' + id, httpOptions);
+  }
+
+  remove1(id) {
+    return this.http.delete(this.BASE_URL + 'removecart/' + id, httpOptions);
+  }
 }

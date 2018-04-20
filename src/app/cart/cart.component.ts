@@ -30,4 +30,14 @@ export class CartComponent implements OnInit {
     window.location.href = 'http://localhost:8000/checkout?token=' + this.token;
     // this.router.navigateByUrl('http://localhost:8000/checkout?token=' + localStorage.getItem('token'));
   }
+
+  add1(id) {
+    this.productService.add1(id).subscribe(
+      resp => console.log(id)
+    );
+  }
+
+  remove1(id) {
+    console.log('Remove');
+  }
 }

@@ -78,7 +78,7 @@ export class ProductComponent implements OnInit {
   }
 
   getVideo() {
-    return this.sanitizer.bypassSecurityTrustResourceUrl(this.products.video);
+    return this.sanitizer.bypassSecurityTrustResourceUrl(this.products.video + '?autoplay=1');
   }
 
   addToCart() {

@@ -27,4 +27,8 @@ export class HomeService {
     return this.http.get(this.BASE_URL + 'getfeatureds', httpOptions);
   }
 
+  getTop() {
+    return this.http.get(this.BASE_URL + 'popular', httpOptions);
+  }
+
 }

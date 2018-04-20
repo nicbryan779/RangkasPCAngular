@@ -20,7 +20,7 @@
       <h5 class="text-md-center">{{ products.type }}</h5>
       <h5 class="text-md-center">{{ products.brand }}</h5>
       <br>
-      <h3 style="color: #80e817;" class="text-center mt-2">{{ products.stock }}</h3>
+      <h3 style="color: #80e817;" class="text-center mt-2">Stocks: {{ products.stock }}</h3>
       <br>
       <h3 class="text-center">{{ products.price | currency:'Rp'}}</h3>
       <!--Amount of item-->
@@ -29,7 +29,12 @@
       <br><br>
       <!--Amount of item-->
       <button type="button" class="btn btn-light-blue btn-lg btn-block" (click)="validateLogin()">Buy Now</button>
-
+      <br>
+      <!--Youtube Video-->
+      <label>Trailer: </label>
+      <br>
+      <iframe width="560" height="315" [src]="getVideo()" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      <!--Youtube Video-->
     </div>
 
   </div>
@@ -48,12 +53,6 @@
         <div class="tab-pane fade show active" id="nav-desc" role="tabpanel" aria-labelledby="nav-home-tab">
           <br>
           {{ products.description }}
-          <br><br><hr>
-          <!--Youtube Video-->
-          <label>Trailer: </label>
-          <br>
-          <iframe width="560" height="315" [src]="getVideo()" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-          <!--Youtube Video-->
         </div>
         <div class="tab-pane fade border-info" id="nav-spec" role="tabpanel" aria-labelledby="nav-spec-tab">
           <ul class="list-group list-group-flush">
