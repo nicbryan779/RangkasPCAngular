@@ -42,16 +42,8 @@ export class ProductComponent implements OnInit {
 
   ngOnInit() {
     this.id = this.route.snapshot.params['id'];
-    this.getStock();
-
     this.getProduct();
-    console.log(localStorage.getItem('token'));
-
-    this.getProduct();
-    console.log('stock is' + this.numStock);
-    console.log(this.products.name);
-
-  }
+    }
 
   validateLogin() {
     if (!this.authService.isLogin()) {
@@ -66,7 +58,7 @@ export class ProductComponent implements OnInit {
       // this.products = data;
       // this.name = resp['data']['name']; OK
       this.products = resp['data'];
-      console.log(this.products.name);
+      this.getStock();
       // console.log(data);
       // console.log(this.products.brand);
     });
@@ -78,16 +70,12 @@ export class ProductComponent implements OnInit {
 
   getStock() {
     if (this.products.stock > 0) {
-      console.log('stock' + this.products.stock);
       this.isAvailable = true;
       this.stock = 'Stock Available!';
     } else {
       this.isAvailable = false;
       this.stock = 'Out of Stock';
     }
-  }
-
-  buyNow() {
   }
 
   addToCart() {
