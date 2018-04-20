@@ -31,7 +31,7 @@
             <ng-ais-infinite-hits>
               <ng-template let-hits="hits" let-results="results">
                 <div *ngIf="hits.length === 0">
-                  <strong>{{results.query}}</strong>
+                  <p>Sorry, there is no result for :<strong>{{results.query}}</strong></p>
                 </div>
                 <div class="card-columns">
                   <div *ngFor="let hit of hits" class="card mb-3">
@@ -44,7 +44,7 @@
                     </div>
                     <div class="card-body text-center">
                       <ng-ais-highlight attribute="name" [hit]="hit"><h4 class="card-title"></h4></ng-ais-highlight>
-                      <p class="card-text">{{ hit.type }}|{{ hit.brand }}|{{ hit.gameplay }}</p>
+                      <p class="card-text">{{ hit.type }} | {{ hit.brand }} | {{ hit.gameplay }}</p>
                       <p class="card-text">{{ hit.price | currency:'Rp.' }}</p>
                       <a routerLink="product/{{hit.objectID}}" role="button" class="btn btn-light-blue btn-md">Detail</a>
                     </div>
