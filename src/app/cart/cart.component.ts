@@ -27,6 +27,7 @@ export class CartComponent implements OnInit {
   }
 
   goToCheckout() {
+    console.log('testing');
     window.location.href = 'http://localhost:8000/checkout?token=' + this.token;
     // this.router.navigateByUrl('http://localhost:8000/checkout?token=' + localStorage.getItem('token'));
   }

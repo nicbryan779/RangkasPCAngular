@@ -3,6 +3,7 @@ import { User } from '../model/User';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
 import { AuthService } from '../services/auth.service';
+import { ProductService } from '../services/product.service';
 
 @Component({
   selector: 'app-profile',
@@ -24,9 +25,11 @@ export class ProfileComponent implements OnInit {
     state: null,
     zip: null
   };
+  transactions = [];
 
   constructor(
     private authService: AuthService,
+    private productService: ProductService,
     private router: Router,
     private route: ActivatedRoute
     ) {
@@ -34,6 +37,7 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit() {
     this.getUser();
+    this.getTransaction();
   }
 
   getUser() {
@@ -55,6 +59,14 @@ export class ProfileComponent implements OnInit {
         console.log(this.user.id);
       });
     }
+  }
+
+  getTransaction() {
+    this.productService.getTransaction().subscribe(
+      data => {
+        this.transactions = data['data'];
+        console.log(this.transactions);
+    });
   }
 
   submitEdit() {

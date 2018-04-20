@@ -38,6 +38,10 @@ export class ProductService {
     return this.http.get<Cart[]>(this.BASE_URL + 'viewcart', httpOptions);
   }
 
+  getTransaction() {
+    return this.http.get(this.BASE_URL + 'transactions', httpOptions);
+  }
+
   add1(id) {
     return this.http.get(this.BASE_URL + 'add1/' + id, httpOptions);
   }
