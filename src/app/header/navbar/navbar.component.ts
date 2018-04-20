@@ -5,6 +5,7 @@ import { AuthService } from '../../services/auth.service';
 
 import { User } from '../../model/User';
 import { Observable } from 'rxjs/Observable';
+import {ProductService} from '../../services/product.service';
 
 @Component({
   selector: 'app-navbar',
@@ -12,7 +13,7 @@ import { Observable } from 'rxjs/Observable';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-
+  carts = [];
   data: any;
   user: User = {
     id: null,
@@ -27,11 +28,12 @@ export class NavbarComponent implements OnInit {
     zip: null
   };
 
-  constructor(private authService: AuthService, private router: Router) {
+  constructor(private authService: AuthService, private router: Router, private productService: ProductService) {
   }
 
   ngOnInit() {
     this.getUser();
+    this.getCart();
   }
 
   userReset() {
@@ -62,4 +64,12 @@ export class NavbarComponent implements OnInit {
       });
     }
   }
+
+  getCart() {
+    this.productService.getCart().subscribe(resp => {
+      this.carts = resp['data'];
+      console.log(this.carts);
+    });
+  }
+
 }

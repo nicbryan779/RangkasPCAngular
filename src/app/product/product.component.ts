@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { DomSanitizer } from '@angular/platform-browser';
 
 import { Product } from '../model/product';
 import {ActivatedRoute, Router} from '@angular/router';
@@ -36,14 +35,19 @@ export class ProductComponent implements OnInit {
     private authService: AuthService,
     private _productService: ProductService,
     private route: ActivatedRoute,
-    private router: Router,
-    private sanitizer: DomSanitizer
+    private router: Router
   ) { }
 
   ngOnInit() {
     this.id = this.route.snapshot.params['id'];
+    this.getStock(this.id);
+
     this.getProduct();
-    }
+    console.log(localStorage.getItem('token'));
+
+    this.getProduct();
+
+  }
 
   validateLogin() {
     if (!this.authService.isLogin()) {
@@ -58,24 +62,27 @@ export class ProductComponent implements OnInit {
       // this.products = data;
       // this.name = resp['data']['name']; OK
       this.products = resp['data'];
-      this.getStock();
+      this.numStock = resp['data']['stock'];
       // console.log(data);
       // console.log(this.products.brand);
     });
   }
 
-  getVideo() {
-    return this.sanitizer.bypassSecurityTrustResourceUrl(this.products.video);
-  }
-
-  getStock() {
+  getStock(pId) {
+    this._productService.getProduct(pId)
+      .subscribe(resp => this.products = resp['data'])
+    console.log(this.products.stock + 'dr getstock')
     if (this.products.stock > 0) {
+      console.log('stock dr getstock' + this.products.stock);
       this.isAvailable = true;
       this.stock = 'Stock Available!';
     } else {
       this.isAvailable = false;
       this.stock = 'Out of Stock';
     }
+  }
+
+  buyNow() {
   }
 
   addToCart() {

@@ -11,13 +11,15 @@
       <div class="row">
         <div class="col-md-3 border-right">
           <div class="form-group">
-            <h2>Filter by Platform:</h2>
+            <h3>Filter by Platform:</h3>
             <ng-ais-refinement-list attribute="type"></ng-ais-refinement-list>
-
+            <br>
             <div class="form-group">
-              <h2>Studio:</h2>
-              <ng-ais-refinement-list attribute="brand">
-              </ng-ais-refinement-list>
+              <h3>Genre:</h3>
+              <ng-ais-refinement-list attribute="gameplay"></ng-ais-refinement-list>
+              <br>
+              <h3>Developer:</h3>
+              <ng-ais-refinement-list attribute="brand"></ng-ais-refinement-list>
             </div>
 
           </div>
@@ -26,7 +28,7 @@
         <div class="col-md-8 ml-5">
           <ng-ais-search-box placeholder="Search for ..."></ng-ais-search-box>
           <div class="row mt-3">
-            <ng-ais-hits>
+            <ng-ais-infinite-hits>
               <ng-template let-hits="hits" let-results="results">
                 <div *ngIf="hits.length === 0">
                   <strong>{{results.query}}</strong>
@@ -42,17 +44,17 @@
                     </div>
                     <div class="card-body text-center">
                       <ng-ais-highlight attribute="name" [hit]="hit"><h4 class="card-title"></h4></ng-ais-highlight>
-                      <p class="card-text">{{ hit.type }} | {{ hit.brand }}</p>
+                      <p class="card-text">{{ hit.type }}|{{ hit.brand }}|{{ hit.gameplay }}</p>
                       <p class="card-text">{{ hit.price | currency:'Rp.' }}</p>
-                      <a href="product/{{ hit.id }}" role="button" class="btn btn-light-blue btn-md">View Detail</a>
+                      <a routerLink="product/{{hit.objectID}}" role="button" class="btn btn-light-blue btn-md">Detail</a>
                     </div>
                   </div>
                 </div>
               </ng-template>
-            </ng-ais-hits>
+            </ng-ais-infinite-hits>
 
           </div>
-          <div class="row align-items-center">
+          <div class="col-md-6 offset-md-3">
             <ng-ais-pagination></ng-ais-pagination>
           </div>
         </div>
