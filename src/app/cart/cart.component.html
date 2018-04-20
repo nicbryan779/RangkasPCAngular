@@ -7,7 +7,11 @@
             Cart
             <!--Card-->
             <div *ngFor="let cart of carts" class="card mb-3">
-
+              <!--Image-->
+              <div class="view overlay">
+                <img class="img-fluid center" src="http://localhost:8000/uploads/{{ cart.product.img }}" alt="Card image cap" height="400" width="300">
+              </div>
+              <!--Image-->
               <!--Card content-->
               <div class="card-body text-center">
                 <h4 class="card-title">{{ cart.product.name }}</h4>

@@ -23,9 +23,11 @@
       <h3 style="color: #80e817;" class="text-center mt-2">{{ products.stock }}</h3>
       <br>
       <h3 class="text-center">{{ products.price | currency:'Rp'}}</h3>
+      <!--Amount of item-->
       <label>Amount</label>
       <input type="number" name="amount" [(ngModel)]="amount" placeholder="Insert amount you want to purchase">
       <br><br>
+      <!--Amount of item-->
       <button type="button" class="btn btn-light-blue btn-lg btn-block" (click)="validateLogin()">Buy Now</button>
 
     </div>
