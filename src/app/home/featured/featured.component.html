@@ -5,7 +5,7 @@
 
     <!--Card image-->
     <div class="view overlay">
-      <img class="img-fluid" src="http://localhost:8000/uploads/{{feature.img}}" alt="Card image cap">
+      <img style="margin:auto" class="img-fluid" src="http://localhost:8000/uploads/{{feature.img}}" alt="Card image cap">
       <a routerLink="/product/{{ feature.id }}">
         <div class="mask rgba-white-slight"></div>
       </a>
@@ -15,13 +15,14 @@
     <!--Card content-->
     <div class="card-body text-center">
 
-      <h4 class="card-title">{{ feature.name }}</h4>
-      <p class="card-text">{{ feature.type }}</p>
-      <p class="card-text">{{ feature.brand }}</p>
-      <p class="card-text">{{ feature.price | currency:'Rp.' }}</p>
+    <h4 class="card-title">{{ feature.name }}</h4>
+    <p class="card-text">{{ feature.type }}</p>
+    <p class="card-text">{{ feature.brand }}</p>
+    <p class="card-text">{{ feature.price | currency:'Rp.' }}</p>
 
-      <a routerLink="/product/{{ feature.id }}" role="button" class="btn btn-light-blue btn-md">Detail</a>
-    </div>
+    <a routerLink="/product/{{ feature.id }}" role="button" class="btn btn-light-blue btn-md">Detail</a>
+  </div>
+
     <!--Card content-->
 
   </div>

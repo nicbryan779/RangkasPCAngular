@@ -11,6 +11,7 @@
       <div class="row">
         <div class="col-md-3 border-right">
           <div class="form-group">
+            <ng-ais-clear-refinements [autoHideContainer]="true" buttonLabel="Clear filter"></ng-ais-clear-refinements>
             <h3>Filter by Platform:</h3>
             <ng-ais-refinement-list attribute="type"></ng-ais-refinement-list>
             <br>
@@ -20,6 +21,7 @@
               <br>
               <h3>Developer:</h3>
               <ng-ais-refinement-list attribute="brand"></ng-ais-refinement-list>
+
             </div>
 
           </div>
@@ -38,7 +40,7 @@
                     <!--Card image-->
                     <div class="view overlay">
                       <img class="img-fluid" src="http://localhost:8000/uploads/{{hit.img}}" alt="{{hit.name}}">
-                      <a href="product/{{hit.id}}">
+                      <a routerLink="product/{{hit.id}}">
                         <div class="mask rgba-white-slight"></div>
                       </a>
                     </div>

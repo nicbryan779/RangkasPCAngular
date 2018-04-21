@@ -7,11 +7,19 @@
   <hr>
   <div class="row">
     <div class="col-md-5">
-      <img src="http://localhost:8000/uploads/{{products.img}}" class="img-fluid" alt="Responsive image">
+      <img style="width: 410px " src="http://localhost:8000/uploads/{{products.img}}" class="img-fluid" alt="Responsive image">
+      <br>
+      <!--Youtube Video-->
+      <div>
+      <label>Trailer: </label>
+      <br>
+      <iframe width="410" height="280" [src]="getVideo()" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      <!--Youtube Video-->
+      </div>
     </div>
     <div class="col-md-7">
       <h1 class="text-center">
-        <i class="fa fa-steam-square"></i>
+        <span><i class="fa fa-desktop"></i></span>
         <!--<i class="fas fas-key"></i>-->
       </h1>
       <!--<h1 class="text-center"><i class="fa fa-steam-square"></i></h1>-->
@@ -21,7 +29,8 @@
       <h5 class="text-md-center">{{ products.gameplay }}</h5>
       <h5 class="text-md-center">{{ products.brand }}</h5>
       <br>
-      <h3 style="color: #80e817;" class="text-center mt-2">Stocks: {{ products.stock }}</h3>
+      <h3 class="text-center mt-2">Stocks: {{ products.stock }}</h3>
+      <!--product stock nnti aj pas ke sana-->
       <br>
       <h3 class="text-center">{{ products.price | currency:'Rp'}}</h3>
       <!--Amount of item-->
@@ -31,11 +40,6 @@
       <!--Amount of item-->
       <button type="button" class="btn btn-light-blue btn-lg btn-block" (click)="validateLogin()">Buy Now</button>
       <br>
-      <!--Youtube Video-->
-      <label>Trailer: </label>
-      <br>
-      <iframe width="560" height="315" [src]="getVideo()" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-      <!--Youtube Video-->
     </div>
 
   </div>
@@ -66,6 +70,29 @@
           </ul>
         </div>
       </div>
+
+      <div class="row">
+        <div class="col-md-12">
+        <div class="card-deck">
+          <div *ngFor="let similar of similars" class="card-mb-3">
+            <div class="view overlay">
+              <img style="margin:auto" class="img-fluid" src="http://localhost:8000/uploads/{{hit.img}}" alt="Card image cap">
+                 <a routerLink="/product/{{ similar.id }}">
+                  <div class="mask rgba-white-slight"></div>
+                 </a>
+              <div class="card-body text-center">
+                <h4 class="card-title">{{similar.name}}</h4>
+                <p class="card-text">{{ similar.type }} | {{ similar.brand }} | {{ similar.gameplay }}</p>
+                <p class="card-text">{{ similar.price | currency:'Rp. ' }}</p>
+                <a routerLink="product/{{similar.id}}" role="button" class="btn btn-light-blue btn-md">Detail</a>
+              </div>
+            </div>
+            </div>
+        </div>
+
+      </div>
+      </div>
+
     </div>
   </div>
 </div>

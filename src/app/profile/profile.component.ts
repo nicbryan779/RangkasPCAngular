@@ -11,7 +11,7 @@ import { ProductService } from '../services/product.service';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-
+  allowEdit = false;
   data: any;
   user: User = {
     id: null,

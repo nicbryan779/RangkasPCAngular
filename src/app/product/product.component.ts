@@ -18,6 +18,9 @@ import { ProductService } from '../services/product.service';
   styleUrls: ['./product.component.css']
 })
 export class ProductComponent implements OnInit {
+  algoliaConfig = { apiKey: 'b6cd244028ca2f73124edbdba303ff04',
+    appId: 'DI4JTNN11Z',
+    indexName: 'products'};
   products: Product = {
     id: null,
     type: null,
@@ -32,6 +35,7 @@ export class ProductComponent implements OnInit {
     created: null,
     updated: null,
   };
+  similars = [];
   isAvailable = true;
   stock: string;
   amount: number;
@@ -49,7 +53,7 @@ export class ProductComponent implements OnInit {
     this.id = this.route.snapshot.params['id'];
     this.getProduct();
     this.getVideo();
-
+    this.getSimilar();
   }
 
   validateLogin() {
@@ -63,13 +67,13 @@ export class ProductComponent implements OnInit {
   getProduct() {
     this._productService.getProduct(this.id).subscribe(resp => {
       this.products = resp['data'];
-      this.getStock();
     });
   }
 
   getStock() {
     if (this.products.stock > 0) {
       this.isAvailable = true;
+      console.log(this.products.stock);
       this.stock = 'Stock Available!';
     } else {
       this.isAvailable = false;
@@ -94,4 +98,11 @@ export class ProductComponent implements OnInit {
       }
     );
   }
+
+  getSimilar() {
+    this._productService.getSimilar(this.id).subscribe(resp => {
+      this.similars = resp['data'];
+    });
+  }
+
 }
