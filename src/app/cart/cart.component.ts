@@ -22,7 +22,7 @@ export class CartComponent implements OnInit {
   getCart() {
     this.productService.getCart().subscribe(resp => {
       this.carts = resp['data'];
-      console.log(this.carts);
+      console.log(this.carts['amount']);
     });
   }
 
@@ -34,13 +34,15 @@ export class CartComponent implements OnInit {
 
   add1(id) {
     this.productService.add1(id).subscribe(
-      resp => console.log(id)
+      resp =>
+        this.getCart()
     );
   }
 
   remove1(id) {
     this.productService.remove1(id).subscribe(
-      resp => console.log(id)
+      resp =>
+        this.getCart()
     );
   }
 }
