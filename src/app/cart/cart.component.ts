@@ -27,8 +27,12 @@ export class CartComponent implements OnInit {
   }
 
   goToCheckout() {
-    console.log('testing');
-    window.location.href = 'http://localhost:8000/checkout?token=' + this.token;
+    console.log(this.carts);
+    if (this.carts.length === 0) {
+      alert('You have no item to checkout!');
+    } else {
+      window.location.href = 'http://localhost:8000/checkout?token=' + this.token;
+    }
     // this.router.navigateByUrl('http://localhost:8000/checkout?token=' + localStorage.getItem('token'));
   }
 

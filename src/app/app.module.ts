@@ -14,8 +14,6 @@ import { MatButtonModule, MatCheckboxModule } from '@angular/material';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-import { AdminLoginComponent } from './admin/admin-login/admin-login.component';
-import { AdminPageComponent } from './admin/admin-page/admin-page.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { SignupComponent } from './signup/signup.component';
@@ -46,9 +44,7 @@ import { UserGuard } from './guard/user.guard';
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    AdminLoginComponent,
     HomeComponent,
-    AdminPageComponent,
     LoginComponent,
     HomeComponent,
     SignupComponent,

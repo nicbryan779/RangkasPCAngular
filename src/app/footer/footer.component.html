@@ -16,13 +16,21 @@
         <h5 class="text-uppercase">Links</h5>
         <ul class="list-unstyled">
           <li>
-            <a href="#!">Home</a>
+            <a routerLink="/home">Home</a>
           </li>
           <li>
-            <a href="#!">Terms of Service</a>
+            <a *ngIf="!authService.isLogin()" routerLink="/login">Sign in</a>
           </li>
           <li>
-            <a href="#!">About Us</a>
+            <a *ngIf="!authService.isLogin()" routerLink="/signup">Register</a>
+          </li>
+          <li>
+            <a *ngIf="authService.isLogin()" routerLink="/edit">Profile</a>
+          </li>
+          <li>
+            <a *ngIf="authService.isLogin()" routerLink="/cart">
+              <i class="fa fa-shopping-cart"></i><span>View Cart</span>
+            </a>
           </li>
         </ul>
       </div>

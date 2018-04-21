@@ -40,7 +40,7 @@
                     <!--Card image-->
                     <div class="view overlay">
                       <img class="img-fluid" src="http://localhost:8000/uploads/{{hit.img}}" alt="{{hit.name}}">
-                      <a routerLink="product/{{hit.id}}">
+                      <a routerLink="/product/{{hit.id}}">
                         <div class="mask rgba-white-slight"></div>
                       </a>
                     </div>
@@ -48,7 +48,7 @@
                       <ng-ais-highlight attribute="name" [hit]="hit"><h4 class="card-title"></h4></ng-ais-highlight>
                       <p class="card-text">{{ hit.type }} | {{ hit.brand }} | {{ hit.gameplay }}</p>
                       <p class="card-text">{{ hit.price | currency:'Rp.' }}</p>
-                      <a routerLink="product/{{hit.objectID}}" role="button" class="btn btn-light-blue btn-md">Detail</a>
+                      <a routerLink="/product/{{hit.objectID}}" role="button" class="btn btn-light-blue btn-md">Detail</a>
                     </div>
                   </div>
                 </div>

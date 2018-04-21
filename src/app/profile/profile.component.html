@@ -15,6 +15,12 @@
       <div class="tab-content" id="v-pills-tabContent">
         <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
           <h3>Hi, {{this.user.name}}</h3>
+          <hr>
+          <p>This is your profile,
+            <br><br>you can edit your profile in the "Profile" tab
+            <br><br>View your transactions in "Transaction" tab
+            <br><br>Reset your password in the "Setting" tab
+          </p>
         </div>
         <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
           <form #userForm="ngForm" (submit)="submitEdit()">
@@ -67,7 +73,6 @@
                 Zip is required!
               </div>
             </div>
-            <button type="button" (click)="allowEdit">Edit</button>
             <input [disabled]="!userForm.form.valid" type="submit" value="Edit" class="btn btn-primary btn-block">
           </form>
         </div>
@@ -89,11 +94,8 @@
               <td>{{ transaction.total_price }}</td>
               <td>{{ transaction.status }}</td>
             </tr>
-
             </tbody>
           </table>
-
-
         </div>
         <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
           <h4>RESET PASSWORD</h4>
