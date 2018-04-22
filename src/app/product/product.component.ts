@@ -48,16 +48,7 @@ export class ProductComponent implements OnInit {
 
   ngOnInit() {
     this.id = this.route.snapshot.params['id'];
-    // if (!this.getProduct()) {
-    //   this.router.navigateByUrl('/404');
-    //   console.log('success');
-    //   console.log(this.products);
-    // } else {
-    //   console.log('fail');
-    // }
     this.getProduct();
-    this.getVideo();
-    this.getSimilar();
   }
 
   validateLogin() {
@@ -71,14 +62,16 @@ export class ProductComponent implements OnInit {
   getProduct() {
     this._productService.getProduct(this.id).subscribe(resp => {
       this.products = resp['data'];
+      console.log(this.products.stock);
+      this.getVideo();
+      this.getSimilar();
+      this.getStock();
+    },
+    err => {
+      this.router.navigateByUrl('/404');
     });
-    console.log(this.products.name);
-    // if (this.products != null) {
-    //   console.log('SUKSES');
-    // } else {
-    //   this.router.navigateByUrl('/404');
-    // }
-    }
+    return true;
+  }
 
   getStock() {
     if (this.products.stock > 0) {
@@ -112,10 +105,6 @@ export class ProductComponent implements OnInit {
   getSimilar() {
     this._productService.getSimilar(this.id).subscribe(res => {
       this.similars = res['data'];
-      console.log('ini');
-      console.log(res['data']);
-      console.log('ini');
     });
   }
-
 }
