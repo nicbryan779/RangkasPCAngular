@@ -37,6 +37,7 @@ import { ProductService } from './services/product.service';
 
 import { NonuserGuard } from './guard/nonuser.guard';
 import { UserGuard } from './guard/user.guard';
+import { Page404Component } from './extra/page404/page404.component';
 
 
 @NgModule({
@@ -61,6 +62,7 @@ import { UserGuard } from './guard/user.guard';
     TopComponent,
     NewReleaseComponent,
     AllProductComponent,
+    Page404Component,
   ],
   imports: [
     BrowserModule,

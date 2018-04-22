@@ -23,7 +23,7 @@
                   <i class="fa fa-minus"></i>
                 </button></small>
               </span>
-              <div class="input-group-text" id="btnGroupAddon2"><input type="number" [(ngModel)]="cart.amount"></div>
+              <div class="input-group-text" id="btnGroupAddon2"><input type="number" onkeypress='return event.charCode >= 49 && event.charCode <= 57' min="1" [(ngModel)]="cart.amount"></div>
               <span class="input-group-btn">
                <small><button type="button" (click)="add1(cart.id)">
                   <i class="fa fa-plus"></i>

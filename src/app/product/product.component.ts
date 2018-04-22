@@ -18,9 +18,6 @@ import { ProductService } from '../services/product.service';
   styleUrls: ['./product.component.css']
 })
 export class ProductComponent implements OnInit {
-  algoliaConfig = { apiKey: 'b6cd244028ca2f73124edbdba303ff04',
-    appId: 'DI4JTNN11Z',
-    indexName: 'products'};
   products: Product = {
     id: null,
     type: null,
@@ -51,6 +48,13 @@ export class ProductComponent implements OnInit {
 
   ngOnInit() {
     this.id = this.route.snapshot.params['id'];
+    // if (!this.getProduct()) {
+    //   this.router.navigateByUrl('/404');
+    //   console.log('success');
+    //   console.log(this.products);
+    // } else {
+    //   console.log('fail');
+    // }
     this.getProduct();
     this.getVideo();
     this.getSimilar();
@@ -68,7 +72,13 @@ export class ProductComponent implements OnInit {
     this._productService.getProduct(this.id).subscribe(resp => {
       this.products = resp['data'];
     });
-  }
+    console.log(this.products.name);
+    // if (this.products != null) {
+    //   console.log('SUKSES');
+    // } else {
+    //   this.router.navigateByUrl('/404');
+    // }
+    }
 
   getStock() {
     if (this.products.stock > 0) {
@@ -100,8 +110,11 @@ export class ProductComponent implements OnInit {
   }
 
   getSimilar() {
-    this._productService.getSimilar(this.id).subscribe(resp => {
-      this.similars = resp['data'];
+    this._productService.getSimilar(this.id).subscribe(res => {
+      this.similars = res['data'];
+      console.log('ini');
+      console.log(res['data']);
+      console.log('ini');
     });
   }
 

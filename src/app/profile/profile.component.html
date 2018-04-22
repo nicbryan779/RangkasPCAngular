@@ -1,19 +1,22 @@
 <div class="jumbotron">
-  <h2>Profile of {{ this.user.name }}</h2>
+  <h2 class="text-center">Profile of {{ this.user.name }}</h2>
 </div>
 <div class="container">
   <div class="row">
-    <div class="col-md-4">
-      <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-        <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true"><h5>Home</h5></a>
-        <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false"><h5>Profile</h5></a>
-        <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false"><h5>Transaction</h5></a>
-        <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false"><h5>Setting</h5></a>
+    <div class="col-md-3">
+      <div class="list-group" id="list-tab" role="tablist">
+        <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">Home</a>
+        <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">Profile</a>
+        <!--<a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false"><h5>Profile</h5></a>-->
+        <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-transactions" role="tab" aria-controls="messages">Transactions</a>
+        <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-settings" role="tab" aria-controls="settings">Settings</a>
+        <!--<a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false"><h5>Transaction</h5></a>-->
+        <!--<a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false"><h5>Setting</h5></a>-->
       </div>
     </div>
-    <div class="col-md-8">
-      <div class="tab-content" id="v-pills-tabContent">
-        <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+    <div class="col-md-9">
+      <div class="tab-content" id="nav-tabContent">
+        <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
           <h3>Hi, {{this.user.name}}</h3>
           <hr>
           <p>This is your profile,
@@ -22,7 +25,7 @@
             <br><br>Reset your password in the "Setting" tab
           </p>
         </div>
-        <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+        <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
           <form #userForm="ngForm" (submit)="submitEdit()">
             <div class="form-row">
               <label for="nameField">Name: </label>
@@ -76,29 +79,42 @@
             <input [disabled]="!userForm.form.valid" type="submit" value="Edit" class="btn btn-primary btn-block">
           </form>
         </div>
-        <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
-          <strong><u>Transaction Done</u></strong>
-          <table class="table table-hover">
-            <thead>
-            <tr>
-              <th>Invoice ID</th>
-              <th>Total Item</th>
-              <th>Total Price</th>
-              <th>Status</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr *ngFor="let transaction of transactions">
-              <td>{{ transaction.id }}</td>
-              <td>{{ transaction.total_item }}</td>
-              <td>{{ transaction.total_price }}</td>
-              <td>{{ transaction.status }}</td>
-            </tr>
-            </tbody>
-          </table>
+        <div class="tab-pane fade" id="list-transactions" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+        <ul class="list-unstyled">
+          <li *ngFor="let transaction of transactions" class="card-body">
+            <h4>Invoice ID : <span>{{transaction.id}}</span>
+              <br>Total item : <span>{{transaction.total_item}}</span><br>
+              Total Price : <span>{{transaction.total_price}}</span><br>
+              Status : <span>{{transaction.status}}</span>
+            </h4>
+
+          </li>
+        </ul>
+
+<!--ON PROGRESS-->
+
+          <!--<strong><u>Transaction Done</u></strong>-->
+          <!--<table class="table table-hover">-->
+            <!--<thead>-->
+            <!--<tr>-->
+              <!--<th>Invoice ID</th>-->
+              <!--<th>Total Item</th>-->
+              <!--<th>Total Price</th>-->
+              <!--<th>Status</th>-->
+            <!--</tr>-->
+            <!--</thead>-->
+            <!--<tbody>-->
+            <!--<tr *ngFor="let transaction of transactions">-->
+              <!--<td>{{ transaction.id }}</td>-->
+              <!--<td>{{ transaction.total_item }}</td>-->
+              <!--<td>{{ transaction.total_price }}</td>-->
+              <!--<td>{{ transaction.status }}</td>-->
+            <!--</tr>-->
+            <!--</tbody>-->
+          <!--</table>-->
         </div>
-        <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
-          <h4>RESET PASSWORD</h4>
+        <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
+          <h4 class="text-center">Reset your Password</h4>
           <br>
           <input type="button" value="Reset Password" class="btn btn-primary btn-block" routerLink="/submitemail">
           <hr>

@@ -5,13 +5,12 @@
 
     <!--Card image-->
     <div class="view overlay">
-      <img style="margin:auto" class="img-fluid" src="http://localhost:8000/uploads/{{feature.img}}" alt="Card image cap">
+      <img style="margin:auto; object-fit:contain" class="img-fluid" src="http://localhost:8000/uploads/{{feature.img}}" alt="Card image cap">
       <a routerLink="/product/{{ feature.id }}">
         <div class="mask rgba-white-slight"></div>
       </a>
     </div>
     <!--Card image-->
-
     <!--Card content-->
     <div class="card-body text-center">
 

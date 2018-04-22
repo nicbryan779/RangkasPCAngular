@@ -15,6 +15,7 @@ import { AllProductComponent } from './product/all-product/all-product.component
 
 import { NonuserGuard } from './guard/nonuser.guard';
 import { UserGuard } from './guard/user.guard';
+import {Page404Component} from './extra/page404/page404.component';
 
 const routes: Routes =
 [
@@ -31,7 +32,10 @@ const routes: Routes =
   { path: 'product', component: ProductComponent },
   { path: 'product/:id', component: ProductComponent },
   { path: 'all-product', component: AllProductComponent },
-  { path: '**', component: HomeComponent } // Change to does not exit component
+  { path: '**', component: Page404Component }, // Change to does not exit component
+  { path: '404', component: Page404Component } // Change to does not exit component
+  // { path: '**', component: HomeComponent } // Change to does not exit component
+
   // { path: 'detail/:id', component: HeroDetailComponent },
 ];
 
