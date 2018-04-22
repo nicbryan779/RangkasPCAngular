@@ -9,11 +9,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
-
+  proceed = false;
   constructor(private productService: ProductService, private router: Router) { }
-
   carts = [];
-  token = localStorage.getItem('token').valueOf();
 
   ngOnInit() {
     this.getCart();
@@ -24,16 +22,6 @@ export class CartComponent implements OnInit {
       this.carts = resp['data'];
       console.log(this.carts['amount']);
     });
-  }
-
-  goToCheckout() {
-    console.log(this.carts);
-    if (this.carts.length === 0) {
-      alert('You have no item to checkout!');
-    } else {
-      window.location.href = 'http://localhost:8000/checkout?token=' + this.token;
-    }
-    // this.router.navigateByUrl('http://localhost:8000/checkout?token=' + localStorage.getItem('token'));
   }
 
   add1(id) {
@@ -48,5 +36,12 @@ export class CartComponent implements OnInit {
       resp =>
         this.getCart()
     );
+  }
+  goToConfirm() {
+    if (this.carts.length !== 0) {
+      this.router.navigateByUrl('/confirm');
+    } else {
+      alert('You have no item to checkout!');
+    }
   }
 }

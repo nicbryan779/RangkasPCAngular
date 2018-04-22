@@ -1,0 +1,37 @@
+<div class="row">
+  <div class="col-md-12 offset-md-6 mt-md-4">
+    <h2 class="text-center">Confirm Purchase</h2>
+    <table class="table table-hover">
+      <thead>
+      <tr>
+        <th>#</th>
+        <th>Product Name</th>
+        <th>Qty</th>
+        <th>Detail</th>
+        <th>Sub Total</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let cart of carts">
+        <td><img class="img-fluid center" src="http://localhost:8000/uploads/{{cart.product.img}}" alt="Card image cap" height="200" width="200"></td>
+        <td>{{cart.product.name}}</td>
+        <!--Amount-->
+        <td>
+          <div class="input-group">
+            <div class="input-group-text" id="btnGroupAddon2">
+              <input type="number" [(ngModel)]="cart.amount" readonly>
+            </div>
+          </div>
+        </td>
+        <td><a routerLink="/product/{{cart.product.id}}"><i class="fa fa-info"></i></a></td>
+
+      </tr>
+      </tbody>
+    </table>
+    <h2 class="text-center" colspan="5">Total : {{cart.total_price}}</h2>
+
+    <br>
+    <br>
+    <button type="button" (click)="goToCheckout()" class="btn btn-primary">Pay with MidTrans</button>
+  </div>
+</div>

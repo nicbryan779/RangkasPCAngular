@@ -11,6 +11,7 @@ export class AllProductComponent implements OnInit {
                     appId: 'DI4JTNN11Z',
                     indexName: 'products'};
   alls = [];
+  IMG_BASE = 'http://localhost:8000/uploads/';
   // platformFilter: any = {type: value}
   constructor(private productService: ProductService) { }
 

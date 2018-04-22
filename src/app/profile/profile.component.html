@@ -43,7 +43,7 @@
             </div>
             <div class="form-row">
               <label for="phoneField">Phone: </label>
-              <input type="tel" name="Phone" id="phoneField" [disable]="allowEdit" [(ngModel)]="user.phone" #phone="ngModel" [ngClass]="{'is-invalid':phone.errors && phone.touched}" class="form-control" required>
+              <input type="tel" name="Phone" id="phoneField" [disable]="allowEdit" onkeypress='return event.charCode >= 49 && event.charCode <= 57' min="1" [(ngModel)]="user.phone" #phone="ngModel" [ngClass]="{'is-invalid':phone.errors && phone.touched}" class="form-control" required>
               <div [hidden]="!phone.errors?.required" class="invalid-feedback">
                 Phone is required!
               </div>
@@ -80,38 +80,35 @@
           </form>
         </div>
         <div class="tab-pane fade" id="list-transactions" role="tabpanel" aria-labelledby="v-pills-messages-tab">
-        <ul class="list-unstyled">
-          <li *ngFor="let transaction of transactions" class="card-body">
-            <h4>Invoice ID : <span>{{transaction.id}}</span>
-              <br>Total item : <span>{{transaction.total_item}}</span><br>
-              Total Price : <span>{{transaction.total_price}}</span><br>
-              Status : <span>{{transaction.status}}</span>
-            </h4>
-
-          </li>
-        </ul>
+        <!--<ul class="list-unstyled">-->
+          <!--<li *ngFor="let transaction of transactions" class="card-body">-->
+            <!--<h4>Invoice ID : <span>{{transaction.payment_date}}</span></h4>-->
+          <!--</li>-->
+        <!--</ul>-->
 
 <!--ON PROGRESS-->
 
-          <!--<strong><u>Transaction Done</u></strong>-->
-          <!--<table class="table table-hover">-->
-            <!--<thead>-->
-            <!--<tr>-->
-              <!--<th>Invoice ID</th>-->
-              <!--<th>Total Item</th>-->
-              <!--<th>Total Price</th>-->
-              <!--<th>Status</th>-->
-            <!--</tr>-->
-            <!--</thead>-->
-            <!--<tbody>-->
-            <!--<tr *ngFor="let transaction of transactions">-->
-              <!--<td>{{ transaction.id }}</td>-->
-              <!--<td>{{ transaction.total_item }}</td>-->
-              <!--<td>{{ transaction.total_price }}</td>-->
-              <!--<td>{{ transaction.status }}</td>-->
-            <!--</tr>-->
-            <!--</tbody>-->
-          <!--</table>-->
+          <strong><u>Transaction Done</u></strong>
+          <table class="table table-hover">
+            <thead>
+            <tr>
+              <th>Invoice ID</th>
+              <th>Total Item</th>
+              <th>Total Price</th>
+              <th>Status</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let transaction of transactions">
+              <td>{{transaction.payment_date}}</td>
+              <td>{{ transaction.id }}</td>
+              <td>{{ transaction.total_item }}</td>
+              <td>{{ transaction.total_price }}</td>
+              <td>{{ transaction.status }}</td>
+              <td>{{ transaction.payment_type }}</td>
+            </tr>
+            </tbody>
+          </table>
         </div>
         <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
           <h4 class="text-center">Reset your Password</h4>

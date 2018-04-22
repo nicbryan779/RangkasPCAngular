@@ -33,13 +33,13 @@
             <ng-ais-infinite-hits>
               <ng-template let-hits="hits" let-results="results">
                 <div *ngIf="hits.length === 0">
-                  <p>Sorry, there is no result for :<strong>{{results.query}}</strong></p>
+                  <h3>Sorry, there is no result for :<strong>{{results.query}}</strong></h3>
                 </div>
                 <div class="card-columns">
                   <div *ngFor="let hit of hits" class="card mb-3">
                     <!--Card image-->
                     <div class="view overlay">
-                      <img class="img-fluid" src="http://localhost:8000/uploads/{{hit.img}}" alt="{{hit.name}}">
+                      <img class="img-fluid" src="http://localhost:8000/uploads/{{hit.img}}" alt="pic of {{hit.name}}">
                       <a routerLink="/product/{{hit.id}}">
                         <div class="mask rgba-white-slight"></div>
                       </a>
@@ -47,7 +47,7 @@
                     <div class="card-body text-center">
                       <ng-ais-highlight attribute="name" [hit]="hit"><h4 class="card-title"></h4></ng-ais-highlight>
                       <p class="card-text">{{ hit.type }} | {{ hit.brand }} | {{ hit.gameplay }}</p>
-                      <p class="card-text">{{ hit.price | currency:'Rp.' }}</p>
+                      <p class="card-text">{{ hit.price | currency:'Rp. ' }}</p>
                       <a routerLink="/product/{{hit.objectID}}" role="button" class="btn btn-light-blue btn-md">Detail</a>
                     </div>
                   </div>
