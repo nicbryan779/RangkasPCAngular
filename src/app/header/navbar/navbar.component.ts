@@ -27,11 +27,17 @@ export class NavbarComponent implements OnInit {
     state: null,
     zip: null
   };
+  isLoggedin = false;
 
   constructor(private authService: AuthService, private router: Router, private productService: ProductService) {
   }
 
   ngOnInit() {
+    if (this.authService.isLogin()) {
+      this.isLoggedin = true;
+    } else {
+      this.isLoggedin = false;
+    }
     this.getUser();
     this.getCart();
   }
