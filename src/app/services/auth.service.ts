@@ -15,7 +15,7 @@ const httpOptions = {
 export class AuthService {
 
   token = localStorage.token;
-  baseUrl = 'http://localhost:8000/api';
+  baseUrl = 'https://api.rangkaspc.me/api';
 
   constructor(private http: HttpClient) {
   }

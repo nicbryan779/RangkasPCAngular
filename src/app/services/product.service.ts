@@ -13,7 +13,7 @@ const httpOptions = {
 @Injectable()
 export class ProductService {
 
-  BASE_URL = 'http://localhost:8000/api/';
+  BASE_URL = 'https://api.rangkaspc.me/api/';
 
   constructor(private http: HttpClient) {}
 
@@ -33,15 +33,21 @@ export class ProductService {
     console.log(submitAmount);
     return this.http.post(this.BASE_URL + 'addtocart/' + id, submitAmount, httpOptions);
   }
+
   getSimilar(id): Observable<Product[]> {
     return this.http.get<Product[]>(this.BASE_URL + 'similar/' + id, httpOptions);
-    }
+  }
+
   getCart(): Observable<Cart[]> {
     return this.http.get<Cart[]>(this.BASE_URL + 'viewcart', httpOptions);
   }
 
   getTransaction() {
     return this.http.get(this.BASE_URL + 'transactions', httpOptions);
+  }
+
+  getInvoice(id) {
+    return this.http.get(this.BASE_URL + 'invoice/' + id, httpOptions);
   }
 
   add1(id) {
