@@ -15,21 +15,21 @@
       </ul>
       <ul class="navbar-nav nav-flex-icons">
         <li class="nav-item">
-          <a *ngIf="!authService.isLogin()" class="nav-link" routerLink="/login">Sign in</a>
+          <a *ngIf="!isLoggedin" class="nav-link" routerLink="/login">Sign in</a>
         </li>
         <li class="nav-item">
-          <a *ngIf="!authService.isLogin()" class="nav-link" routerLink="/signup">Register</a>
+          <a *ngIf="!isLoggedin" class="nav-link" routerLink="/signup">Register</a>
         </li>
         <li class="nav-item">
-          <a *ngIf="authService.isLogin()" class="nav-link" routerLink="/edit">Profile</a>
+          <a *ngIf="isLoggedin" class="nav-link" routerLink="/edit">Profile</a>
         </li>
         <li class="nav-item">
-          <a *ngIf="authService.isLogin()" class="nav-link" routerLink="/cart">
+          <a *ngIf="isLoggedin" class="nav-link" routerLink="/cart">
             <i class="fa fa-shopping-cart"></i><span>View Cart</span>
           </a>
         </li>
         <li class="nav-item">
-          <a *ngIf="authService.isLogin()" class="nav-link" (click)="submitLogout()">Log Out</a>
+          <a *ngIf="isLoggedin" class="nav-link" (click)="submitLogout()">Log Out</a>
         </li>
       </ul>
 

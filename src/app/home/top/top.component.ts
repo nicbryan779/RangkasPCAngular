@@ -9,7 +9,7 @@ import { HomeService } from '../../services/home.service';
 })
 export class TopComponent implements OnInit {
 
-  top = [];
+  top: any = [];
 
   constructor(private homeService: HomeService) { }
 

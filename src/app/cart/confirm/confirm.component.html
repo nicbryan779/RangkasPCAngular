@@ -13,7 +13,7 @@
       </thead>
       <tbody>
       <tr *ngFor="let cart of carts">
-        <td><img class="img-fluid center" src="http://localhost:8000/uploads/{{cart.product.img}}" alt="Card image cap" height="200" width="200"></td>
+        <td><img class="img-fluid center" src="https://api.rangkaspc.me/uploads/{{cart.product.img}}" alt="Card image cap" height="200" width="200"></td>
         <td>{{cart.product.name}}</td>
         <!--Amount-->
         <td>
@@ -24,11 +24,10 @@
           </div>
         </td>
         <td><a routerLink="/product/{{cart.product.id}}"><i class="fa fa-info"></i></a></td>
-        <td>{{cart.product.price}}</td>
+
       </tr>
       </tbody>
     </table>
-    <h2 class="text-center">Total : {{cart.total_price}}</h2>
 
     <br>
     <br>

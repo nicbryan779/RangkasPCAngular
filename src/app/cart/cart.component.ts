@@ -4,6 +4,7 @@ import { Cart } from '../model/Cart';
 import { Router } from '@angular/router';
 import {forEach} from '@angular/router/src/utils/collection';
 
+
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
@@ -11,11 +12,10 @@ import {forEach} from '@angular/router/src/utils/collection';
 })
 export class CartComponent implements OnInit {
   proceed = false;
-  carts = [];
-  totalPrice: number;
-  token = localStorage.getItem('token').valueOf();
-
   constructor(private productService: ProductService, private router: Router) { }
+  carts = [];
+  token = localStorage.getItem('token').valueOf();
+  totalPrice: number;
 
   ngOnInit() {
     this.getCart();
@@ -33,17 +33,16 @@ export class CartComponent implements OnInit {
     this.productService.getInvoice(this.carts[0]['invoice_id']).subscribe(
       resp => {
         this.totalPrice = resp['invoice']['total_price'];
-      }
-    );
-  }
+        }
+      );
+    }
 
   add1(id) {
     this.productService.add1(id).subscribe(
       resp => {
         this.router.navigateByUrl('/jojowashere', {skipLocationChange: true}).then( () =>
           this.router.navigateByUrl('/cart'));
-      }
-        // this.getCart()
+        }
     );
   }
 
@@ -52,20 +51,18 @@ export class CartComponent implements OnInit {
       resp => {
         this.router.navigateByUrl('/jojowashere', {skipLocationChange: true}).then( () =>
           this.router.navigateByUrl('/cart'));
-        // this.getCart();
-      }
+        }
     );
   }
-
   goToCheckout() {
     console.log(this.carts);
     if (this.carts.length === 0) {
       alert('You have no item to checkout!');
       this.totalPrice = 0;
-    } else {
+      } else {
       window.location.href = 'http://localhost:8000/checkout?token=' + this.token;
-    }
-    // this.router.navigateByUrl('http://localhost:8000/checkout?token=' + localStorage.getItem('token'));
+      }
+      // this.router.navigateByUrl('http://localhost:8000/checkout?token=' + localStorage.getItem('token'));
   }
 
   validateTotal() {

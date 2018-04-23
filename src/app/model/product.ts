@@ -11,4 +11,5 @@ export class Product {
   video?: string;
   created?: string;
   updated?: string;
+  gameplay?: string;
 }
