@@ -13,7 +13,7 @@ const httpOptions = {
 @Injectable()
 export class ProductService {
 
-  BASE_URL = 'https://api.rangkaspc.me/api/';
+  BASE_URL = 'localhost:8000/api/';
 
   constructor(private http: HttpClient) {}
 

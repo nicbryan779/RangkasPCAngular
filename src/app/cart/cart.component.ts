@@ -60,7 +60,7 @@ export class CartComponent implements OnInit {
       alert('You have no item to checkout!');
       this.totalPrice = 0;
       } else {
-      window.location.href = 'http://localhost:8000/checkout?token=' + this.token;
+      window.location.href = 'localhost:8000/api/checkout?token=' + this.token;
       }
       // this.router.navigateByUrl('http://localhost:8000/checkout?token=' + localStorage.getItem('token'));
   }

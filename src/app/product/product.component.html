@@ -7,14 +7,14 @@
   <hr>
   <div class="row">
     <div class="col-md-5">
-      <img style="width: 410px " src="https://api.rangkaspc.me/uploads/{{products.img}}" class="img-fluid" alt="Responsive image">
+      <img src="https://api.rangkaspc.me/uploads/{{products.img}}" class="img-fluid" alt="Responsive image">
       <br>
       <!--Youtube Video-->
       <div>
-      <label>Trailer: </label>
-      <br>
-      <iframe *ngIf="getVideo()!==null" width="410" height="280" [src]="getVideo()" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-      <!--Youtube Video-->
+        <!--<label>Trailer: </label>-->
+        <!--<br>-->
+        <!--<iframe *ngIf="getVideo()!==null" width="410" height="280" [src]="getVideo()" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>-->
+        <!--Youtube Video-->
       </div>
     </div>
     <div class="col-md-7">
@@ -60,32 +60,32 @@
       </div>
 
       <hr>
-
       <div class="container-fluid">
       <div class="row">
-        <div class="col-md-12 mt-md-4">
+        <div class="col-sm-12 ">
           <h3 class="text-center">Similar Product</h3>
-        <div class="card-deck">
-          <div *ngFor="let similar of similars" class="card">
-            <div class="view overlay">
-              <img style="margin:auto" class="img-fluid" src="https://api.rangkaspc.me/uploads/{{similar.img}}" alt="Card image cap">
-                 <a routerLink="/product/{{ similar.id }}">
+          <div class="card-deck">
+            <div *ngFor="let similar of similars" class="card mb-3">
+              <div class="view overlay">
+                <img class="img-fluid" src="https://api.rangkaspc.me/uploads/{{similar.img}}" alt="Card image cap">
+                <a routerLink="/product/{{ similar.id }}">
                   <div class="mask rgba-white-slight"></div>
-                 </a>
-              <div class="card-body text-center">
-                <h4 class="card-title">{{similar.name}}</h4>
-                <p class="card-text">{{ similar.type }} | {{ similar.brand }} | {{ similar.gameplay }}</p>
-                <p class="card-text">{{ similar.price | currency:'Rp. ' }}</p>
-                <a routerLink="product/{{similar.id}}" role="button" class="btn btn-light-blue btn-md">Detail</a>
+                </a>
+                <div class="card-body text-center">
+                  <h4 class="card-title">{{similar.name}}</h4>
+                  <p class="card-text">{{ similar.type }} | {{ similar.brand }} | {{ similar.gameplay }}</p>
+                  <p class="card-text">{{ similar.price | currency:'Rp. ' }}</p>
+                  <a routerLink="product/{{similar.id}}" role="button" class="btn btn-light-blue btn-md">Detail</a>
+                </div>
               </div>
             </div>
-            </div>
+          </div>
+
         </div>
-
       </div>
       </div>
+      <hr>
 
-    </div>
     </div>
   </div>
 </div>
