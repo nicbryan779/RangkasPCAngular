@@ -7,8 +7,8 @@ import { ProductService } from '../../services/product.service';
   styleUrls: ['./all-product.component.css']
 })
 export class AllProductComponent implements OnInit {
-  algoliaConfig = { apiKey: 'b6cd244028ca2f73124edbdba303ff04',
-                    appId: 'DI4JTNN11Z',
+  algoliaConfig = { apiKey: '00f1bb7fcb575a5f3a60b2955f3f066d',
+                    appId: '2IQGKRK7FZ',
                     indexName: 'products'};
   alls = [];
   IMG_BASE = 'localhost:8000/uploads/';

@@ -4,7 +4,7 @@
   <div *ngFor="let release of releases" class="card mb-3">
     <!--Card image-->
     <div class="view overlay">
-      <img style="height:400px; width:400px" class="img-fluid" src="https://api.rangkaspc.me/uploads/{{release.img}}" alt="Card image cap">
+      <img style="height:400px; width:400px" class="img-fluid" src="localhost:8000/uploads/{{release.img}}" alt="Card image cap">
       <a routerLink="/product/ {{ release.id }}">
         <div class="mask rgba-white-slight"></div>
       </a>

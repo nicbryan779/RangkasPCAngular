@@ -12,7 +12,6 @@ const httpOptions = {
 
 @Injectable()
 export class ProductService {
-
   BASE_URL = 'localhost:8000/api/';
 
   constructor(private http: HttpClient) {}

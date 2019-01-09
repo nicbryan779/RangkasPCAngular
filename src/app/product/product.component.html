@@ -67,7 +67,7 @@
           <div class="card-deck">
             <div *ngFor="let similar of similars" class="card mb-3">
               <div class="view overlay">
-                <img class="img-fluid" src="https://api.rangkaspc.me/uploads/{{similar.img}}" alt="Card image cap">
+                <img class="img-fluid" src="localhost:8000/uploads/{{similar.img}}" alt="Card image cap">
                 <a routerLink="/product/{{ similar.id }}">
                   <div class="mask rgba-white-slight"></div>
                 </a>
